@@ -7,6 +7,8 @@ book:
   author: "David Fleming"
   license: "CC BY-SA"
   page-footer: CC-BY-SA-4.0 (2025) David Fleming
+  repo-url: https://github.com/dvlaming/SRMP
+  repo-actions: [issue, source]
   chapters:
     - index.qmd
     - t1.qmd
