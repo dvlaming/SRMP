@@ -1,14 +1,16 @@
 project:
   type: book
+  output-dir: docs
 
 book:
-  title: "SRMP"
-  author: "Norah Jones"
-  date: "19-12-2025"
+  title: "SRMP tutorials"
+  author: "David Fleming"
+  license: "CC BY-SA"
+  page-footer: CC-BY-SA-4.0 (2025) David Fleming
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
+    - t1.qmd
+    - t2.qmd
     - references.qmd
 
 bibliography: references.bib

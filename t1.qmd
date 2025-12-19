@@ -1,0 +1,40 @@
+# Data wrangling and visualization in JASP {#sec-t1}
+
+
+## Learning outcomes {#sec-t1ILO}
+
+After viewing the tutorial materials and following along with the demonstration, you can:
+
+1. Filter data according to certain values of cases (select cases)
+2. Compute new variables from existing variables
+3. Recode existing variables into new variables
+4. Run descriptive statistics and frequencies
+
+## Datasets {#sec-t1data}
+
+This demonstration uses the dataset **ReducedESS11** which you can download [here](data/ReducedESS11.jasp).
+
+The dataset consists of 7 variables:
+
+* `Country`
+  + Belgium, France, Germany, Hungary and the Netherlands
+* `imsmetn` ("Allow many/few immigrants of same race/ethnic group as majority")
+  1. "Allow none"
+  2. "Allow some"
+  3. "Allow a few"
+  4. "Allow none"
+* `imdfetn` ("Allow many/few immigrants of different race/ethnic group from majority")
+  + Scale as `imsmetn`
+* `impcntr` ("Allow many/few immigrants from poorer countries outside Europe")
+  + Scale as `imsmetn`
+* `imbgeco` ("Immigration bad or good for country's economy")
+  + Scale from 0 ("Bad for the economy") to 10 ("Good for the economy")
+* `imueclt` ("Country's cultural life undermined or enriched by immigrants")
+  + Scale from 0 ("Cultural life undermined") to 10 ("Cultural life enriched")
+* `imwbcnt` ("Immigrants make country worse or better place to live")
+  + Scale from 0 ("Worse place to live") to 10 ("Better place to live")
+
+## Videos {#sec-t1vid}
+
+
+<iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=ff4f9e0f-5471-4ef9-a24b-e2081fa093b2&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="SRMP_1.mp4"></iframe>

@@ -1,9 +1,5 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+Welcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology JASP tutorials. For questions, please [mail me](mailto:d.fleming@uva.nl)
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
 
-```{r}
-1 + 1
-```

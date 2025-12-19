@@ -1,0 +1,18 @@
+# Bias and checking assumptions {#sec-t2}
+
+
+## Learning outcomes {#sec-t2ILO}
+
+After viewing the tutorial materials and following along with the demonstration, you can:
+
+1. Screen for outliers using the boxplot rule
+2. Check the assumptions of normality and homogeneity of variances, using plots and tests
+
+## Datasets {#sec-t2data}
+
+This demonstration uses the dataset **ReducedESS11** which you can download [here](data/ReducedESS11.jasp). You can see a summary of the variables in the [previous tutorial](t1.qmd#sec-t1data)
+
+## Videos {#sec-t2vid}
+
+
+<iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=0d85ec35-e5d1-450b-86cd-5e2e728f3e4b&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="SRMP_2.mp4"></iframe>
