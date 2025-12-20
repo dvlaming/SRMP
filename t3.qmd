@@ -1,0 +1,32 @@
+# t-tests, one-way ANOVA and $\chi^2$ tests of independence {#sec-t3}
+
+
+## Learning outcomes {#sec-t3ILO}
+
+After viewing the tutorial materials and following along with the demonstration, you can:
+
+1. Run, interpret and report results from t-tests, one-way ANOVA and the $\chi^2$ test of independence
+2. Check the assumptions of these tests
+
+## Datasets {#sec-t3data}
+
+This demonstration uses the dataset **ReducedESS11** which you can download [here](data/ReducedESS11.jasp). You can see a summary of the variables in a [previous tutorial](t1.qmd#sec-t1data).
+
+## Videos {#sec-t3vid}
+
+Coming soon...
+
+## Reporting {#sec-t3report}
+
+### t-tests {#sec-t3t}
+
+* t(_degrees of freedom_) = _t-value_,  p = _p-value_,  _d_ = _cohen's d_
+
+### ANOVA {#sec-t3oneway}
+
+* F(_numerator/effect degrees of freedom_,  _denominator/residual degrees of freedom_) = _F-value_,  p = _p-value_,  $\omega^2$ = _omega-squared value_
+
+### $\chi^2$ {#sec-t3chi}
+
+* $\chi^2$(_n_, _degrees of freedom_) = _chi-squared value_,  p = _p-value_,  V = _Cramer's V value_
+

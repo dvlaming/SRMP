@@ -10,9 +10,124 @@ After viewing the tutorial materials and following along with the demonstration,
 
 ## Datasets {#sec-t2data}
 
-This demonstration uses the dataset **ReducedESS11** which you can download [here](data/ReducedESS11.jasp). You can see a summary of the variables in the [previous tutorial](t1.qmd#sec-t1data)
+This demonstration uses the dataset **ReducedESS11** which you can download [here](data/ReducedESS11.jasp). You can see a summary of the variables in the [previous tutorial](t1.qmd#sec-t1data).
 
 ## Videos {#sec-t2vid}
 
 
 <iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=0d85ec35-e5d1-450b-86cd-5e2e728f3e4b&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="SRMP_2.mp4"></iframe>
+
+## Guide to diagnostic plots {#sec-t2plots}
+
+### Boxplot {#sec-t2box}
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(ggtext)
+
+set.seed(282061222)
+
+
+## split label tekst over meerdere regels: https://stackoverflow.com/questions/73500445/ggplot-insert-linebreak-when-label-is-too-long
+
+datas<-tibble::tibble(x=rchisq(70,3))
+x_samenvatting<-summary(datas$x) %>% 
+  dplyr::bind_rows() %>%
+  tidyr::pivot_longer(cols=everything(), names_to = "soort" ,values_to = "cijfer" ) %>% 
+  dplyr::mutate(soort=case_when(soort == "1st Qu." ~ "Q1",
+                                soort == "3rd Qu." ~ "Q3",
+                                soort == "Median" ~ "Median",
+                                .default = soort)) %>% 
+  dplyr::mutate(coordy = case_when(soort == "Q1" | soort == "Q3" | 
+                                     soort == "Median" ~ .4,
+                                   .default = .3)) %>% 
+  dplyr::filter(soort!="Mean")
+
+x_IQR<-x_samenvatting$cijfer[4] - x_samenvatting$cijfer[2]
+
+datas<-datas %>% 
+  dplyr::mutate(uitschieter=case_when(x > x_samenvatting$cijfer[4] + (1.5 * x_IQR) | 
+                                        x < x_samenvatting$cijfer[2] - (1.5 * x_IQR)
+                                      ~ "Potential outlier",.default=NA))
+uitschieter_datas<-datas %>% 
+  dplyr::filter(uitschieter=="Potential outlier") 
+
+
+puitleg<-ggplot2::ggplot(data=datas,aes(y=x)) +
+  theme_classic() +
+  theme(panel.grid.major.y = element_line(color = "grey",
+                                                  linewidth = .1,
+                                          linetype=2),
+        panel.grid.major.x = element_line(color = "grey",
+                                                  linewidth = .1,
+                                          linetype=2)) +
+  ggplot2::geom_boxplot(width = 0.5, fill = "skyblue", alpha = 0.5,
+                        staplewidth=.5) +
+  xlim(-1,1)+
+  ggplot2::geom_label(data=x_samenvatting, aes(y=cijfer, x = coordy, label = soort),
+                      colour = "black", fontface="bold",
+                      size = 3)+
+  ggplot2::geom_label(y=mean(uitschieter_datas$x), x = -.5, 
+                      label = stringr::str_wrap("Potential outliers",20),
+                      colour = "red", fontface="bold",
+                      size = 3)+
+  ggplot2::geom_segment(data = uitschieter_datas, aes(y = mean(x),
+                                                      yend = x, x = -.3, 
+                                                      xend = -.1),
+                        arrow= arrow(type = "open", length = unit(0.25, "cm")),
+                        color="red")+
+  ggplot2::geom_segment(y = .5, yend = .5, x = -.5, xend = 0,
+                        arrow= arrow(type = "open", length = unit(0.25, "cm")),
+                        color="black")+
+  ggplot2::geom_label(y=.5, x = -.5,
+                      label = "'Whisker'",
+                      colour = "black", fontface="bold",
+                      size = 3)+
+  ggplot2::geom_segment(y = 7.5, yend = 7.5, x = -.5, xend = 0,
+                        arrow= arrow(type = "open", length = unit(0.25, "cm")),
+                        color="black")+
+  ggplot2::geom_label(y=7.5, x = -.5,
+                      label = "'Whisker'",
+                      colour = "black", fontface="bold",
+                      size = 3)+
+  ggplot2::geom_segment(y = min(datas$x), yend = max(datas$x), x = .65, xend = .65,color="darkgreen")+
+  ggplot2::geom_segment(y = min(datas$x), yend = min(datas$x), x = .65, xend = .45,color="darkgreen")+
+  ggplot2::geom_segment(y = max(datas$x), yend = max(datas$x), x = .65, xend = .45,color="darkgreen")+
+  ggplot2::geom_label(y=(max(datas$x)-min(datas$x))/2, x = .875,
+                      label = "Range\n(Max - Min)",
+                      colour = "darkgreen", fontface="bold",
+                      size = 3)+
+    ggplot2::geom_segment(y = x_samenvatting$cijfer[2], yend = x_samenvatting$cijfer[4], x = -.5, xend = -.5,color="darkmagenta")+
+      ggplot2::geom_segment(y = x_samenvatting$cijfer[2], yend = x_samenvatting$cijfer[2], x = -.5, xend = -.3,color="darkmagenta")+
+      ggplot2::geom_segment(y = x_samenvatting$cijfer[4], yend = x_samenvatting$cijfer[4], x = -.5, xend = -.3,color="darkmagenta")+
+  ggplot2::geom_label(y=((x_samenvatting$cijfer[4]-x_samenvatting$cijfer[2])/2)+x_samenvatting$cijfer[2], x = -.725,
+                      label = "Interquartile Range\n(Q3 - Q1)",
+                      colour = "darkmagenta", fontface="bold",
+                      size = 3)+
+  labs(caption = "<span style = 'font-size:7.5pt'>**Explanation**</span><br><br><span style = 'color:skyblue;'>**Blue box**</span> spans the middle 50% of the data<br>**Q1 (25th percentile)** distinguishes lower 25% of the sorted values<br>**Median** (Q2/50th percentile) splits the sorted data in half<br>**Q3 (75th percentile)** distinguishes the upper 25% of the sorted values<br>**Potential outliers** are identified by the 'boxplot rule' whereby a value is flagged if it is smaller/larger than the value of Q1/Q3 minus/plus 1.5 times the interquartile range <br>**The vertical lines at the end of the whiskers** show the minimum and maximum values in the absence of outliers<br>(If there are no visible whiskers and no outliers, then the minimum and maximum are respectively equal to Q1 and Q3)")+
+  theme(axis.title.x = element_text(size = 14),
+        axis.title.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.text = element_text(size = 12),
+        plot.title = element_text(size = 16),
+        plot.subtitle = element_text(face = "italic"),
+        plot.caption = element_textbox_simple(size = 7, face = "italic", 
+                                              padding = margin(2, 2, 2, 2),
+                                              margin = margin(10, 0, 0, 0),
+                                              width = unit(1, "npc"),
+                                              hjust=0, box.colour = "black",
+                                              linetype = 1, linewidth = 0.2,
+                                              r = grid::unit(4, "pt")))+
+  scale_y_continuous(name = "Score", limits = c(0,12),
+                     breaks = seq(0,12,1))+
+  coord_flip()
+  
+ggplot2::ggsave("boxplot_uitleg.png",puitleg)
+
+```
+
+![](boxplot_uitleg.png)
+
+### QQ plots {#sec-t2QQ}

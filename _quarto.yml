@@ -2,8 +2,13 @@ project:
   type: book
   output-dir: docs
 
+execute: 
+  echo: false
+  warning: false
+  message: false
+
 book:
-  title: "SRMP tutorials"
+  title: "PPLE Skills and Research Methods for Psychology: tutorial manual"
   author: "David Fleming"
   license: "CC BY-SA"
   page-footer: CC-BY-SA-4.0 (2025) David Fleming
@@ -13,10 +18,11 @@ book:
     - index.qmd
     - t1.qmd
     - t2.qmd
+    - t3.qmd
     - references.qmd
 
 bibliography: references.bib
-
+csl: apa-annotated-bibliography.csl
 format:
   html:
     theme:

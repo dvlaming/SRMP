@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./t3.html" rel="next">
 <link href="./t1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -130,6 +159,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./t3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">t-tests, one-way ANOVA and <span class="math inline">\(\chi^2\)</span> tests of independence</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -147,6 +182,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sec-t2ILO" id="toc-sec-t2ILO" class="nav-link active" data-scroll-target="#sec-t2ILO"><span class="header-section-number">2.1</span> Learning outcomes</a></li>
   <li><a href="#sec-t2data" id="toc-sec-t2data" class="nav-link" data-scroll-target="#sec-t2data"><span class="header-section-number">2.2</span> Datasets</a></li>
   <li><a href="#sec-t2vid" id="toc-sec-t2vid" class="nav-link" data-scroll-target="#sec-t2vid"><span class="header-section-number">2.3</span> Videos</a></li>
+  <li><a href="#sec-t2plots" id="toc-sec-t2plots" class="nav-link" data-scroll-target="#sec-t2plots"><span class="header-section-number">2.4</span> Guide to diagnostic plots</a>
+  <ul class="collapse">
+  <li><a href="#sec-t2box" id="toc-sec-t2box" class="nav-link" data-scroll-target="#sec-t2box"><span class="header-section-number">2.4.1</span> Boxplot</a></li>
+  <li><a href="#sec-t2QQ" id="toc-sec-t2QQ" class="nav-link" data-scroll-target="#sec-t2QQ"><span class="header-section-number">2.4.2</span> QQ plots</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/dvlaming/SRMP/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/dvlaming/SRMP/blob/main/t2.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -182,14 +222,24 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="sec-t2data" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="sec-t2data"><span class="header-section-number">2.2</span> Datasets</h2>
-<p>This demonstration uses the dataset <strong>ReducedESS11</strong> which you can download <a href="data/ReducedESS11.jasp">here</a>. You can see a summary of the variables in the <a href="./t1.html#sec-t1data">previous tutorial</a></p>
+<p>This demonstration uses the dataset <strong>ReducedESS11</strong> which you can download <a href="data/ReducedESS11.jasp">here</a>. You can see a summary of the variables in the <a href="./t1.html#sec-t1data">previous tutorial</a>.</p>
 </section>
 <section id="sec-t2vid" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="sec-t2vid"><span class="header-section-number">2.3</span> Videos</h2>
 <iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=0d85ec35-e5d1-450b-86cd-5e2e728f3e4b&amp;embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&amp;referrer=StreamWebApp&amp;referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen="" title="SRMP_2.mp4">
 </iframe>
+</section>
+<section id="sec-t2plots" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="sec-t2plots"><span class="header-section-number">2.4</span> Guide to diagnostic plots</h2>
+<section id="sec-t2box" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="sec-t2box"><span class="header-section-number">2.4.1</span> Boxplot</h3>
+<p><img src="boxplot_uitleg.png" class="img-fluid"></p>
+</section>
+<section id="sec-t2QQ" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="sec-t2QQ"><span class="header-section-number">2.4.2</span> QQ plots</h3>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -599,8 +649,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./t3.html" class="pagination-link" aria-label="t-tests, one-way ANOVA and $\chi^2$ tests of independence">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">t-tests, one-way ANOVA and <span class="math inline">\(\chi^2\)</span> tests of independence</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

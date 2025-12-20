@@ -12,7 +12,7 @@ After viewing the tutorial materials and following along with the demonstration,
 
 ## Datasets {#sec-t1data}
 
-This demonstration uses the dataset **ReducedESS11** which you can download [here](data/ReducedESS11.jasp).
+This demonstration uses the dataset **ReducedESS11** which is based on the ESS11 dataset [@ess11]. You can download it [here](data/ReducedESS11.jasp).
 
 The dataset consists of 7 variables:
 

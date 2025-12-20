@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="David Fleming">
 
-<title>PPLE Skills and Research Methods for Psychology: tutorial manual</title>
+<title>3&nbsp; t-tests, one-way ANOVA and \chi^2 tests of independence – SRMP tutorials</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./t1.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./t2.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -111,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t3.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">t-tests, one-way ANOVA and <span class="math inline">\(\chi^2\)</span> tests of independence</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -126,7 +126,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">PPLE Skills and Research Methods for Psychology: tutorial manual</a> 
+      <a href="./">SRMP tutorials</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/dvlaming/SRMP" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -141,7 +141,7 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -159,7 +159,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./t3.html" class="sidebar-item-text sidebar-link">
+  <a href="./t3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">t-tests, one-way ANOVA and <span class="math inline">\(\chi^2\)</span> tests of independence</span></span></a>
   </div>
 </li>
@@ -179,28 +179,30 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#sec-t3ILO" id="toc-sec-t3ILO" class="nav-link active" data-scroll-target="#sec-t3ILO"><span class="header-section-number">3.1</span> Learning outcomes</a></li>
+  <li><a href="#sec-t3data" id="toc-sec-t3data" class="nav-link" data-scroll-target="#sec-t3data"><span class="header-section-number">3.2</span> Datasets</a></li>
+  <li><a href="#sec-t3vid" id="toc-sec-t3vid" class="nav-link" data-scroll-target="#sec-t3vid"><span class="header-section-number">3.3</span> Videos</a></li>
+  <li><a href="#sec-t3report" id="toc-sec-t3report" class="nav-link" data-scroll-target="#sec-t3report"><span class="header-section-number">3.4</span> Reporting</a>
+  <ul class="collapse">
+  <li><a href="#sec-t3t" id="toc-sec-t3t" class="nav-link" data-scroll-target="#sec-t3t"><span class="header-section-number">3.4.1</span> t-tests</a></li>
+  <li><a href="#sec-t3oneway" id="toc-sec-t3oneway" class="nav-link" data-scroll-target="#sec-t3oneway"><span class="header-section-number">3.4.2</span> ANOVA</a></li>
+  <li><a href="#sec-t3chi" id="toc-sec-t3chi" class="nav-link" data-scroll-target="#sec-t3chi"><span class="header-section-number">3.4.3</span> <span class="math inline">\(\chi^2\)</span></a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/dvlaming/SRMP/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/dvlaming/SRMP/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/dvlaming/SRMP/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/dvlaming/SRMP/blob/main/t3.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">PPLE Skills and Research Methods for Psychology: tutorial manual</h1>
+<h1 class="title"><span id="sec-t3" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">t-tests, one-way ANOVA and <span class="math inline">\(\chi^2\)</span> tests of independence</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>David Fleming </p>
-          </div>
-  </div>
     
   
     
@@ -211,11 +213,44 @@ window.Quarto = {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>Welcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology JASP tutorials. For questions, please <a href="mailto:d.fleming@uva.nl">get in touch</a>!</p>
+<section id="sec-t3ILO" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-t3ILO"><span class="header-section-number">3.1</span> Learning outcomes</h2>
+<p>After viewing the tutorial materials and following along with the demonstration, you can:</p>
+<ol type="1">
+<li>Run, interpret and report results from t-tests, one-way ANOVA and the <span class="math inline">\(\chi^2\)</span> test of independence</li>
+<li>Check the assumptions of these tests</li>
+</ol>
+</section>
+<section id="sec-t3data" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-t3data"><span class="header-section-number">3.2</span> Datasets</h2>
+<p>This demonstration uses the dataset <strong>ReducedESS11</strong> which you can download <a href="data/ReducedESS11.jasp">here</a>. You can see a summary of the variables in a <a href="./t1.html#sec-t1data">previous tutorial</a>.</p>
+</section>
+<section id="sec-t3vid" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-t3vid"><span class="header-section-number">3.3</span> Videos</h2>
+<p>Coming soon…</p>
+</section>
+<section id="sec-t3report" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-t3report"><span class="header-section-number">3.4</span> Reporting</h2>
+<section id="sec-t3t" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="sec-t3t"><span class="header-section-number">3.4.1</span> t-tests</h3>
+<ul>
+<li>t(<em>degrees of freedom</em>) = <em>t-value</em>, p = <em>p-value</em>, <em>d</em> = <em>cohen’s d</em></li>
+</ul>
+</section>
+<section id="sec-t3oneway" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="sec-t3oneway"><span class="header-section-number">3.4.2</span> ANOVA</h3>
+<ul>
+<li>F(<em>numerator/effect degrees of freedom</em>, <em>denominator/residual degrees of freedom</em>) = <em>F-value</em>, p = <em>p-value</em>, <span class="math inline">\(\omega^2\)</span> = <em>omega-squared value</em></li>
+</ul>
+</section>
+<section id="sec-t3chi" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="sec-t3chi"><span class="header-section-number">3.4.3</span> <span class="math inline">\(\chi^2\)</span></h3>
+<ul>
+<li><span class="math inline">\(\chi^2\)</span>(<em>n</em>, <em>degrees of freedom</em>) = <em>chi-squared value</em>, p = <em>p-value</em>, V = <em>Cramer’s V value</em></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -620,10 +655,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./t2.html" class="pagination-link" aria-label="Bias and checking assumptions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Bias and checking assumptions</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./t1.html" class="pagination-link" aria-label="Data wrangling and visualization in JASP">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data wrangling and visualization in JASP</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -635,7 +673,7 @@ window.Quarto = {
     </div>   
     <div class="nav-footer-center">
 <p>CC-BY-SA-4.0 (2025) David Fleming</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dvlaming/SRMP/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/dvlaming/SRMP/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dvlaming/SRMP/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/dvlaming/SRMP/blob/main/t3.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
