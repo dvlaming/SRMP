@@ -1,0 +1,47 @@
+# The impact of assumption violations on test results {#sec-a2tests}
+
+
+## Normality
+
+Coming soon...
+
+## Homogeneity of variances
+
+### Type-I error rate ($\alpha$)
+
+```{r}
+#| fig-height: 10
+
+## adapted from: https://github.com/lmu-osc/Introduction-Simulations-in-R/blob/main/exercise_script_with_solutions.R
+
+set.seed(291086)
+
+simT <- function(n1, n2, m1, m2, sd1, sd2){
+  x1 <- rnorm(n1,m1,sd1)
+  x2 <- rnorm(n2,m2,sd2)
+  t.test(x1, x2, var.equal = TRUE)$p.value # assume equal variances
+}
+
+simTRep <- replicate(1000, simT(50,50,0,0,1,1)) # equal var
+simTRep_uneq <- replicate(1000, simT(50,50,0,0,1,1.5)) # unequal var
+simTRep_uneqsamp <- replicate(1000, simT(50,40,0,0,1,1.5)) # unequal var and sample size
+
+
+par(mfrow = c(3,1))
+hist(simTRep, breaks = 21, col = c('red',rep('grey',20)), 
+     main = "Equal variances, equal n (50)", xlab = "p-value")
+hist(simTRep_uneq, breaks = 21, col = c('red',rep('grey',20)), 
+     main = "Unequal variances, equal n (50)", xlab = "p-value")
+hist(simTRep_uneqsamp, breaks = 21, col = c('red',rep('grey',20)), 
+     main = "Unequal variances, unequal n (50, 40)", xlab = "p-value")
+
+```
+
+False positive rate for:
+
+1. Equal variances and equal _n_ = `{r} mean(simTRep <= .05)`
+2. Unequal variances and equal _n_ = `{r} mean(simTRep_uneq <= .05)`
+3. Unequal variances and unequal _n_ = `{r} mean(simTRep_uneqsamp <= .05)`
+
+
+### Power (1 - $\beta$)

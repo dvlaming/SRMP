@@ -1,0 +1,32 @@
+# APA reporting style for statistical tests {#sec-a1report}
+
+## Correlation
+
+* Pearson's $r$: r(_degrees of freedom_) = _correlation coefficient_, p = _p-value_
+
+## t-tests {#sec-a1t}
+
+* t(_degrees of freedom_) = _t-value_,  p = _p-value_,  _d_ = _cohen's d_
+
+## ANOVA {#sec-a1anova}
+
+* F(_numerator/effect degrees of freedom_,  _denominator/residual degrees of freedom_) = _F-value_,  p = _p-value_,  $\omega^2$ = _omega-squared value_
+
+## $\chi^2$ {#sec-a1chi}
+
+* $\chi^2$(_n_, _degrees of freedom_) = _chi-squared value_,  p = _p-value_,  V = _Cramer's V value_
+
+## Regression {#sec-a1reg}
+
+* Coefficients: b = _coefficient/slope value_, t(_degrees of freedom_) = _t-value_,  p = _p-value_
+* With many coefficients, a table can be more efficient
+
+### Mediation {#sec-a1med}
+
+* Coefficients and tests for different paths can be reported as for standard regression 
+* if using bootstrapped and bias-corrected confidence intervals (e.g., as produced when using PROCESS), then: b = _coefficient/path value_, 95% BCa CI = [_CI lower bound_, _CI upper bound_]  
+
+### Moderation {#sec-a1mod}
+
+* Coefficients and tests (including those from simple slopes analyses) can be reported as for standard regression
+* With many coefficients, a table can be more efficient

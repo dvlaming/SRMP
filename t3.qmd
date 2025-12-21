@@ -16,17 +16,5 @@ This demonstration uses the dataset **ReducedESS11** which you can download [her
 
 Coming soon...
 
-## Reporting {#sec-t3report}
 
-### t-tests {#sec-t3t}
-
-* t(_degrees of freedom_) = _t-value_,  p = _p-value_,  _d_ = _cohen's d_
-
-### ANOVA {#sec-t3oneway}
-
-* F(_numerator/effect degrees of freedom_,  _denominator/residual degrees of freedom_) = _F-value_,  p = _p-value_,  $\omega^2$ = _omega-squared value_
-
-### $\chi^2$ {#sec-t3chi}
-
-* $\chi^2$(_n_, _degrees of freedom_) = _chi-squared value_,  p = _p-value_,  V = _Cramer's V value_
 

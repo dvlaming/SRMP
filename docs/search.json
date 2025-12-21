@@ -188,5 +188,93 @@
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bias and checking assumptions</span>"
     ]
+  },
+  {
+    "objectID": "a1.html",
+    "href": "a1.html",
+    "title": "Appendix A — APA reporting style for statistical tests",
+    "section": "",
+    "text": "A.1 Correlation",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>APA reporting style for statistical tests</span>"
+    ]
+  },
+  {
+    "objectID": "a1.html#correlation",
+    "href": "a1.html#correlation",
+    "title": "Appendix A — APA reporting style for statistical tests",
+    "section": "",
+    "text": "Pearson’s \\(r\\): r(degrees of freedom) = correlation coefficient, p = p-value",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>APA reporting style for statistical tests</span>"
+    ]
+  },
+  {
+    "objectID": "a1.html#sec-a1t",
+    "href": "a1.html#sec-a1t",
+    "title": "Appendix A — APA reporting style for statistical tests",
+    "section": "A.2 t-tests",
+    "text": "A.2 t-tests\n\nt(degrees of freedom) = t-value, p = p-value, d = cohen’s d",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>APA reporting style for statistical tests</span>"
+    ]
+  },
+  {
+    "objectID": "a1.html#sec-a1anova",
+    "href": "a1.html#sec-a1anova",
+    "title": "Appendix A — APA reporting style for statistical tests",
+    "section": "A.3 ANOVA",
+    "text": "A.3 ANOVA\n\nF(numerator/effect degrees of freedom, denominator/residual degrees of freedom) = F-value, p = p-value, \\(\\omega^2\\) = omega-squared value",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>APA reporting style for statistical tests</span>"
+    ]
+  },
+  {
+    "objectID": "a1.html#sec-a1chi",
+    "href": "a1.html#sec-a1chi",
+    "title": "Appendix A — APA reporting style for statistical tests",
+    "section": "A.4 \\(\\chi^2\\)",
+    "text": "A.4 \\(\\chi^2\\)\n\n\\(\\chi^2\\)(n, degrees of freedom) = chi-squared value, p = p-value, V = Cramer’s V value",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>APA reporting style for statistical tests</span>"
+    ]
+  },
+  {
+    "objectID": "a1.html#sec-a1reg",
+    "href": "a1.html#sec-a1reg",
+    "title": "Appendix A — APA reporting style for statistical tests",
+    "section": "A.5 Regression",
+    "text": "A.5 Regression\n\nCoefficients: b = coefficient/slope value, t(degrees of freedom) = t-value, p = p-value\nWith many coefficients, a table can be more efficient\n\n\nA.5.1 Mediation\n\nCoefficients and tests for different paths can be reported as for standard regression\nif using bootstrapped and bias-corrected confidence intervals (e.g., as produced when using PROCESS), then: b = coefficient/path value, 95% BCa CI = [CI lower bound, CI upper bound]\n\n\n\nA.5.2 Moderation\n\nCoefficients and tests (including those from simple slopes analyses) can be reported as for standard regression\nWith many coefficients, a table can be more efficient",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>APA reporting style for statistical tests</span>"
+    ]
+  },
+  {
+    "objectID": "a2.html",
+    "href": "a2.html",
+    "title": "Appendix B — The impact of assumption violations on test results",
+    "section": "",
+    "text": "B.1 Normality\nComing soon…",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>The impact of assumption violations on test results</span>"
+    ]
+  },
+  {
+    "objectID": "a2.html#homogeneity-of-variances",
+    "href": "a2.html#homogeneity-of-variances",
+    "title": "Appendix B — The impact of assumption violations on test results",
+    "section": "B.2 Homogeneity of variances",
+    "text": "B.2 Homogeneity of variances\n\nB.2.1 Type-I error rate (\\(\\alpha\\))\n\n\n\n\n\n\n\n\n\nFalse positive rate for:\n\nEqual variances and equal n = 0.049\nUnequal variances and equal n = 0.049\nUnequal variances and unequal n = 0.057\n\n\n\nB.2.2 Power (1 - \\(\\beta\\))",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>The impact of assumption violations on test results</span>"
+    ]
   }
 ]

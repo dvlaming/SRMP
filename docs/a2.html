@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Data wrangling and visualization in JASP – PPLE Skills and Research Methods for Psychology: tutorial manual</title>
+<title>Appendix B — The impact of assumption violations on test results – PPLE Skills and Research Methods for Psychology: tutorial manual</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -50,8 +30,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./t2.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./a1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -131,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./t1.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data wrangling and visualization in JASP</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./a1.html">Appendices</a></li><li class="breadcrumb-item"><a href="./a2.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">The impact of assumption violations on test results</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -167,7 +146,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./t1.html" class="sidebar-item-text sidebar-link active">
+  <a href="./t1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data wrangling and visualization in JASP</span></span></a>
   </div>
 </li>
@@ -206,7 +185,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./a2.html" class="sidebar-item-text sidebar-link">
+  <a href="./a2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">The impact of assumption violations on test results</span></span></a>
   </div>
 </li>
@@ -222,18 +201,21 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-t1ILO" id="toc-sec-t1ILO" class="nav-link active" data-scroll-target="#sec-t1ILO"><span class="header-section-number">1.1</span> Learning outcomes</a></li>
-  <li><a href="#sec-t1data" id="toc-sec-t1data" class="nav-link" data-scroll-target="#sec-t1data"><span class="header-section-number">1.2</span> Datasets</a></li>
-  <li><a href="#sec-t1vid" id="toc-sec-t1vid" class="nav-link" data-scroll-target="#sec-t1vid"><span class="header-section-number">1.3</span> Videos</a></li>
+  <li><a href="#normality" id="toc-normality" class="nav-link active" data-scroll-target="#normality"><span class="header-section-number">B.1</span> Normality</a></li>
+  <li><a href="#homogeneity-of-variances" id="toc-homogeneity-of-variances" class="nav-link" data-scroll-target="#homogeneity-of-variances"><span class="header-section-number">B.2</span> Homogeneity of variances</a>
+  <ul class="collapse">
+  <li><a href="#type-i-error-rate-alpha" id="toc-type-i-error-rate-alpha" class="nav-link" data-scroll-target="#type-i-error-rate-alpha"><span class="header-section-number">B.2.1</span> Type-I error rate (<span class="math inline">\(\alpha\)</span>)</a></li>
+  <li><a href="#power-1---beta" id="toc-power-1---beta" class="nav-link" data-scroll-target="#power-1---beta"><span class="header-section-number">B.2.2</span> Power (1 - <span class="math inline">\(\beta\)</span>)</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/dvlaming/SRMP/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/dvlaming/SRMP/blob/main/t1.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/dvlaming/SRMP/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/dvlaming/SRMP/blob/main/a2.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./a1.html">Appendices</a></li><li class="breadcrumb-item"><a href="./a2.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">The impact of assumption violations on test results</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-t1" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data wrangling and visualization in JASP</span></span></h1>
+<h1 class="title"><span id="sec-a2tests" class="quarto-section-identifier">Appendix B — The impact of assumption violations on test results</span></h1>
 </div>
 
 
@@ -250,65 +232,35 @@ window.Quarto = {
 </header>
 
 
-<section id="sec-t1ILO" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="sec-t1ILO"><span class="header-section-number">1.1</span> Learning outcomes</h2>
-<p>After viewing the tutorial materials and following along with the demonstration, you can:</p>
+<section id="normality" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="normality"><span class="header-section-number">B.1</span> Normality</h2>
+<p>Coming soon…</p>
+</section>
+<section id="homogeneity-of-variances" class="level2" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="homogeneity-of-variances"><span class="header-section-number">B.2</span> Homogeneity of variances</h2>
+<section id="type-i-error-rate-alpha" class="level3" data-number="B.2.1">
+<h3 data-number="B.2.1" class="anchored" data-anchor-id="type-i-error-rate-alpha"><span class="header-section-number">B.2.1</span> Type-I error rate (<span class="math inline">\(\alpha\)</span>)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="a2_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>False positive rate for:</p>
 <ol type="1">
-<li>Filter data according to certain values of cases (select cases)</li>
-<li>Compute new variables from existing variables</li>
-<li>Recode existing variables into new variables</li>
-<li>Run descriptive statistics and frequencies</li>
+<li>Equal variances and equal <em>n</em> = 0.049</li>
+<li>Unequal variances and equal <em>n</em> = 0.049</li>
+<li>Unequal variances and unequal <em>n</em> = 0.057</li>
 </ol>
 </section>
-<section id="sec-t1data" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="sec-t1data"><span class="header-section-number">1.2</span> Datasets</h2>
-<p>This demonstration uses the dataset <strong>ReducedESS11</strong> which is based on the ESS11 dataset <span class="citation" data-cites="ess11">(<a href="references.html#ref-ess11" role="doc-biblioref">Norwegian Agency for Shared Services in Education &amp; Research, 2025</a>)</span>. You can download it <a href="data/ReducedESS11.jasp">here</a>.</p>
-<p>The dataset consists of 7 variables:</p>
-<ul>
-<li><code>Country</code>
-<ul>
-<li>Belgium, France, Germany, Hungary and the Netherlands</li>
-</ul></li>
-<li><code>imsmetn</code> (“Allow many/few immigrants of same race/ethnic group as majority”)
-<ol type="1">
-<li>“Allow none”</li>
-<li>“Allow some”</li>
-<li>“Allow a few”</li>
-<li>“Allow none”</li>
-</ol></li>
-<li><code>imdfetn</code> (“Allow many/few immigrants of different race/ethnic group from majority”)
-<ul>
-<li>Scale as <code>imsmetn</code></li>
-</ul></li>
-<li><code>impcntr</code> (“Allow many/few immigrants from poorer countries outside Europe”)
-<ul>
-<li>Scale as <code>imsmetn</code></li>
-</ul></li>
-<li><code>imbgeco</code> (“Immigration bad or good for country’s economy”)
-<ul>
-<li>Scale from 0 (“Bad for the economy”) to 10 (“Good for the economy”)</li>
-</ul></li>
-<li><code>imueclt</code> (“Country’s cultural life undermined or enriched by immigrants”)
-<ul>
-<li>Scale from 0 (“Cultural life undermined”) to 10 (“Cultural life enriched”)</li>
-</ul></li>
-<li><code>imwbcnt</code> (“Immigrants make country worse or better place to live”)
-<ul>
-<li>Scale from 0 (“Worse place to live”) to 10 (“Better place to live”)</li>
-</ul></li>
-</ul>
+<section id="power-1---beta" class="level3" data-number="B.2.2">
+<h3 data-number="B.2.2" class="anchored" data-anchor-id="power-1---beta"><span class="header-section-number">B.2.2</span> Power (1 - <span class="math inline">\(\beta\)</span>)</h3>
+
+
 </section>
-<section id="sec-t1vid" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="sec-t1vid"><span class="header-section-number">1.3</span> Videos</h2>
-<iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=ff4f9e0f-5471-4ef9-a24b-e2081fa093b2&amp;embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&amp;referrer=StreamWebApp&amp;referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen="" title="SRMP_1.mp4">
-</iframe>
-
-
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
-<div id="ref-ess11" class="csl-entry" role="listitem">
-Norwegian Agency for Shared Services in Education, S. -, &amp; Research. (2025). <em>European social survey european research infrastructure (ESS ERIC) (2025) ESS11 - integrated file, edition 4.0 [data set]</em>. <a href="https://doi.org/10.21338/ess11e04_0">https://doi.org/10.21338/ess11e04_0</a>
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -713,14 +665,11 @@ Norwegian Agency for Shared Services in Education, S. -, &amp; Research. (2025).
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./a1.html" class="pagination-link" aria-label="APA reporting style for statistical tests">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">APA reporting style for statistical tests</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./t2.html" class="pagination-link" aria-label="Bias and checking assumptions">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Bias and checking assumptions</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -731,7 +680,7 @@ Norwegian Agency for Shared Services in Education, S. -, &amp; Research. (2025).
     </div>   
     <div class="nav-footer-center">
 <p>CC-BY-SA-4.0 (2025) David Fleming</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dvlaming/SRMP/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/dvlaming/SRMP/blob/main/t1.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dvlaming/SRMP/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/dvlaming/SRMP/blob/main/a2.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

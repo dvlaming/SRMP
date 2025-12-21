@@ -124,10 +124,10 @@ puitleg<-ggplot2::ggplot(data=datas,aes(y=x)) +
                      breaks = seq(0,12,1))+
   coord_flip()
   
-ggplot2::ggsave("boxplot_uitleg.png",puitleg)
+ggplot2::ggsave("./images/boxplot_uitleg.png",puitleg)
 
 ```
 
-![](boxplot_uitleg.png)
+![](./images/boxplot_uitleg.png)
 
 ### QQ plots {#sec-t2QQ}

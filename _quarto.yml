@@ -20,6 +20,9 @@ book:
     - t2.qmd
     - t3.qmd
     - references.qmd
+  appendices: 
+    - a1.qmd
+    - a2.qmd
 
 bibliography: references.bib
 csl: apa-annotated-bibliography.csl
