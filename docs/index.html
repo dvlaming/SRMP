@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -236,9 +256,16 @@ window.Quarto = {
 
 <section id="preface" class="level1 unnumbered">
 <h1 class="unnumbered">Preface</h1>
-<p>Welcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology JASP tutorials. For questions, please <a href="mailto:d.fleming@uva.nl">get in touch</a>!</p>
+<p>Welcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology tutorials. In session 2025/26, we will be working with JASP which can be downloaded <a href="https://jasp-stats.org/download/">here</a>.</p>
+<p>Every tutorial page will feature a video demonstrations and a download link for the dataset used in the video. Although not part of the course this year, code to run the featured analyses in the R programming language R <span class="citation" data-cites="baseR">(<a href="references.html#ref-baseR" role="doc-biblioref">R Core Team, 2025</a>)</span> will also be included, for the curious.</p>
+<p>For questions, please <a href="mailto:d.fleming@uva.nl">get in touch</a>!</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-baseR" class="csl-entry" role="listitem">
+R Core Team. (2025). <em>R: A language and environment for statistical computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

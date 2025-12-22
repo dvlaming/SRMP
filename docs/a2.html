@@ -232,6 +232,8 @@ window.Quarto = {
 </header>
 
 
+<p>Although we have discussed checking for bias in the model, you will likely have noticed that assumption tests are very rarely reported in the psychological literature, which could lead you to question the influence that assumption violations have on inference.</p>
+<p>Normally, we do not know whether <span class="math inline">\(H_0\)</span> or <span class="math inline">\(H_1\)</span> is true, but simulations allow us to fix “population” parameters and then draw samples to investigate how robust our hypothesis tests are against assumption violations. For example, we can look at whether independent-samples t-tests produce results in line with our given <span class="math inline">\(\alpha\)</span> level by repeatedly drawing groups from a simulated population where <span class="math inline">\(\mu\)</span> = 0 (i.e., where both groups come from the same null population where there is no treatment effect) and calculating the proportion of significant test results. On the other hand, we can determine whether the power of a test is in line with expectations by drawing groups from populations with <strong>different</strong> values of <span class="math inline">\(\mu\)</span>, and counting the instances where the test detected the “true” effect.</p>
 <section id="normality" class="level2" data-number="B.1">
 <h2 data-number="B.1" class="anchored" data-anchor-id="normality"><span class="header-section-number">B.1</span> Normality</h2>
 <p>Coming soon…</p>
@@ -240,21 +242,6 @@ window.Quarto = {
 <h2 data-number="B.2" class="anchored" data-anchor-id="homogeneity-of-variances"><span class="header-section-number">B.2</span> Homogeneity of variances</h2>
 <section id="type-i-error-rate-alpha" class="level3" data-number="B.2.1">
 <h3 data-number="B.2.1" class="anchored" data-anchor-id="type-i-error-rate-alpha"><span class="header-section-number">B.2.1</span> Type-I error rate (<span class="math inline">\(\alpha\)</span>)</h3>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="a2_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>False positive rate for:</p>
-<ol type="1">
-<li>Equal variances and equal <em>n</em> = 0.049</li>
-<li>Unequal variances and equal <em>n</em> = 0.049</li>
-<li>Unequal variances and unequal <em>n</em> = 0.057</li>
-</ol>
 </section>
 <section id="power-1---beta" class="level3" data-number="B.2.2">
 <h3 data-number="B.2.2" class="anchored" data-anchor-id="power-1---beta"><span class="header-section-number">B.2.2</span> Power (1 - <span class="math inline">\(\beta\)</span>)</h3>

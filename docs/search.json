@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "PPLE Skills and Research Methods for Psychology: tutorial manual",
     "section": "",
-    "text": "Preface\nWelcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology JASP tutorials. For questions, please get in touch!",
+    "text": "Preface\nWelcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology tutorials. In session 2025/26, we will be working with JASP which can be downloaded here.\nEvery tutorial page will feature a video demonstrations and a download link for the dataset used in the video. Although not part of the course this year, code to run the featured analyses in the R programming language R (R Core Team, 2025) will also be included, for the curious.\nFor questions, please get in touch!\n\n\n\n\nR Core Team. (2025). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/",
     "crumbs": [
       "Preface"
     ]
@@ -34,7 +34,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Norwegian Agency for Shared Services in Education, S. -, & Research.\n(2025). European social survey european research infrastructure (ESS\nERIC) (2025) ESS11 - integrated file, edition 4.0 [data set]. https://doi.org/10.21338/ess11e04_0",
+    "text": "Norwegian Agency for Shared Services in Education, S. -, & Research.\n(2025). European social survey european research infrastructure (ESS\nERIC) (2025) ESS11 - integrated file, edition 4.0 [data set]. https://doi.org/10.21338/ess11e04_0\n\n\nR Core Team. (2025). R: A language and environment for statistical\ncomputing. R Foundation for Statistical Computing. https://www.R-project.org/",
     "crumbs": [
       "References"
     ]
@@ -260,7 +260,7 @@
     "href": "a2.html",
     "title": "Appendix B — The impact of assumption violations on test results",
     "section": "",
-    "text": "B.1 Normality\nComing soon…",
+    "text": "B.1 Normality\nAlthough we have discussed checking for bias in the model, you will likely have noticed that assumption tests are very rarely reported in the psychological literature, which could lead you to question the influence that assumption violations have on inference.\nNormally, we do not know whether \\(H_0\\) or \\(H_1\\) is true, but simulations allow us to fix “population” parameters and then draw samples to investigate how robust our hypothesis tests are against assumption violations. For example, we can look at whether independent-samples t-tests produce results in line with our given \\(\\alpha\\) level by repeatedly drawing groups from a simulated population where \\(\\mu\\) = 0 (i.e., where both groups come from the same null population where there is no treatment effect) and calculating the proportion of significant test results. On the other hand, we can determine whether the power of a test is in line with expectations by drawing groups from populations with different values of \\(\\mu\\), and counting the instances where the test detected the “true” effect.\nComing soon…",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>The impact of assumption violations on test results</span>"
@@ -271,7 +271,7 @@
     "href": "a2.html#homogeneity-of-variances",
     "title": "Appendix B — The impact of assumption violations on test results",
     "section": "B.2 Homogeneity of variances",
-    "text": "B.2 Homogeneity of variances\n\nB.2.1 Type-I error rate (\\(\\alpha\\))\n\n\n\n\n\n\n\n\n\nFalse positive rate for:\n\nEqual variances and equal n = 0.049\nUnequal variances and equal n = 0.049\nUnequal variances and unequal n = 0.057\n\n\n\nB.2.2 Power (1 - \\(\\beta\\))",
+    "text": "B.2 Homogeneity of variances\n\nB.2.1 Type-I error rate (\\(\\alpha\\))\n\n\nB.2.2 Power (1 - \\(\\beta\\))",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>The impact of assumption violations on test results</span>"
