@@ -184,7 +184,7 @@
     "href": "t2.html#sec-t2plots",
     "title": "2  Bias and checking assumptions",
     "section": "2.4 Guide to diagnostic plots",
-    "text": "2.4 Guide to diagnostic plots\n\n2.4.1 Boxplot\n\n\n\n2.4.2 QQ plots",
+    "text": "2.4 Guide to diagnostic plots\n\n2.4.1 Boxplot\n\n\n\n\n\n\n\nNote 2.1: How to interpret a boxplot\n\n\n\n\nBlue box spans the middle 50% of the data\nQ1 (25th percentile) distinguishes lower 25% of the sorted values\nMedian (Q2/50th percentile) splits the sorted dataset in half\nQ3 (75th percentile) distinguishes the upper 25% of the sorted values\nPotential outliers are identified by the ‘boxplot rule’ whereby a value is flagged if it is smaller/larger than the value of Q1/Q3 minus/plus 1.5 times the interquartile range\nThe vertical lines at the end of the whiskers show the minimum and maximum values in the absence of outliers\n\nIf there are no visible whiskers and no outliers, then the minimum and maximum are respectively equal to Q1 and Q3\n\n\n\n\n\n\n2.4.2 QQ plots",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bias and checking assumptions</span>"
     ]

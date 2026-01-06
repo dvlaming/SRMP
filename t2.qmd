@@ -105,7 +105,7 @@ puitleg<-ggplot2::ggplot(data=datas,aes(y=x)) +
                       label = "Interquartile Range\n(Q3 - Q1)",
                       colour = "darkmagenta", fontface="bold",
                       size = 3)+
-  labs(caption = "<span style = 'font-size:7.5pt'>**Explanation**</span><br><br><span style = 'color:skyblue;'>**Blue box**</span> spans the middle 50% of the data<br>**Q1 (25th percentile)** distinguishes lower 25% of the sorted values<br>**Median** (Q2/50th percentile) splits the sorted data in half<br>**Q3 (75th percentile)** distinguishes the upper 25% of the sorted values<br>**Potential outliers** are identified by the 'boxplot rule' whereby a value is flagged if it is smaller/larger than the value of Q1/Q3 minus/plus 1.5 times the interquartile range <br>**The vertical lines at the end of the whiskers** show the minimum and maximum values in the absence of outliers<br>(If there are no visible whiskers and no outliers, then the minimum and maximum are respectively equal to Q1 and Q3)")+
+  # labs(caption = "<span style = 'font-size:7.5pt'>**Explanation**</span><br><br><span style = 'color:skyblue;'>**Blue box**</span> spans the middle 50% of the data<br>**Q1 (25th percentile)** distinguishes lower 25% of the sorted values<br>**Median** (Q2/50th percentile) splits the sorted data in half<br>**Q3 (75th percentile)** distinguishes the upper 25% of the sorted values<br>**Potential outliers** are identified by the 'boxplot rule' whereby a value is flagged if it is smaller/larger than the value of Q1/Q3 minus/plus 1.5 times the interquartile range <br>**The vertical lines at the end of the whiskers** show the minimum and maximum values in the absence of outliers<br>(If there are no visible whiskers and no outliers, then the minimum and maximum are respectively equal to Q1 and Q3)")+
   theme(axis.title.x = element_text(size = 14),
         axis.title.y = element_blank(),
         axis.ticks.y = element_blank(),
@@ -130,4 +130,36 @@ ggplot2::ggsave("./images/boxplot_uitleg.png",puitleg)
 
 ![](./images/boxplot_uitleg.png)
 
+::: {#nte-boxplot .callout-note}
+
+### How to interpret a boxplot
+- <span style = 'color:skyblue;'>**Blue box**</span> spans the middle 50% of the data
+- **Q1 (25th percentile)** distinguishes lower 25% of the sorted values
+- **Median** (Q2/50th percentile) splits the sorted dataset in half
+- **Q3 (75th percentile)** distinguishes the upper 25% of the sorted values
+- **Potential outliers** are identified by the 'boxplot rule' whereby a value is flagged if it is smaller/larger than the value of Q1/Q3 minus/plus 1.5 times the interquartile range
+- **The vertical lines at the end of the whiskers** show the minimum and maximum values in the absence of outliers
+    - If there are no visible whiskers and no outliers, then the minimum and maximum are respectively equal to Q1 and Q3
+    
+:::
+
 ### QQ plots {#sec-t2QQ}
+
+```{r}
+
+## https://stats.stackexchange.com/questions/594745/how-to-generated-skewed-distribution-with-specific-means-and-variances-in-r
+
+# https://forum.posit.co/t/how-can-we-create-right-left-skewed-normal-distribution-curve-in-r/39115/8
+
+# https://www.sthda.com/english/wiki/histogram-and-density-plots-r-base-graphs
+
+# https://cran.r-project.org/web/packages/gk/refman/gk.html#dgh
+
+# https://arxiv.org/pdf/1706.06889
+
+## use package "gh" for kurtotsis and skew
+
+## gk::rgh(1000, 0, 1, 0.4, 0, c = 0.8, type = c("generalised", "tukey"))
+
+```
+
