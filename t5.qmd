@@ -1,0 +1,17 @@
+# ANOVAs for repeated measures and mixed designs  {#sec-t5}
+
+
+## Learning outcomes {#sec-t5ILO}
+
+After viewing the tutorial materials and following along with the demonstration, you can:
+
+1. Set-up, run and interpret ANOVAs for repeated-measures (RM) and mixed designs
+2. Check the assumptions of these tests
+
+## Datasets {#sec-t5data}
+
+This demonstration uses the dataset **PastryBirdsMixed** which you can download [here](data/PastryBirdsMixed.jasp). The file contains (fictional) data which look at sausage roll (saucijzenbroodje) preference in birds from the Corvid family. This is a 3 x 2 x 2 mixed design: IV1 (between-subjects) is `Bird` (Crow, Jackdaw, or Magpie); IV2 (within-subjects) is `Baker` (Albert Heijn/AH or Kiosk); IV3 (within-subjects) is `Filling` (Meat or Vegatarian). The DV is the number of times the bird pecked at the sausage roll upon presentation. 
+
+## Videos {#sec-t5vid}
+
+Coming soon...

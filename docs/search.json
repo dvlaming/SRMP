@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "PPLE Skills and Research Methods for Psychology: tutorial manual",
     "section": "",
-    "text": "Preface\nWelcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology tutorials. In session 2025/26, we will be working with JASP which can be downloaded here.\nEvery tutorial page will feature a video demonstrations and a download link for the dataset used in the video. Although not part of the course this year, code to run the featured analyses in the R programming language R (R Core Team, 2025) will also be included, for the curious.\nFor questions, please get in touch!\n\n\n\n\nR Core Team. (2025). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/",
+    "text": "Preface\nWelcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology tutorials. In session 2025/26, we will be working with JASP (JASP Team, 2025) which can be downloaded here.\nEvery tutorial page will feature a video demonstration, and these are often based on examples presented in the course textbook, Discovering Statistics using JASP (Field et al., 2025), and the accompanying datasets prepared by Andy Field. All of these datasets can be downloaded directly from the textbook’s companion website.\nAlthough not part of the course this year, code to run the featured analyses in the R programming language (R Core Team, 2025) will also be included, for the curious.\nFor questions, please get in touch!\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.\n\n\nJASP Team. (2025). JASP (Version 0.95.4) [Computer software]. https://jasp-stats.org/\n\n\nR Core Team. (2025). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/",
     "crumbs": [
       "Preface"
     ]
@@ -34,7 +34,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Norwegian Agency for Shared Services in Education, S. -, & Research.\n(2025). European social survey european research infrastructure (ESS\nERIC) (2025) ESS11 - integrated file, edition 4.0 [data set]. https://doi.org/10.21338/ess11e04_0\n\n\nR Core Team. (2025). R: A language and environment for statistical\ncomputing. R Foundation for Statistical Computing. https://www.R-project.org/",
+    "text": "Field, A. P. (2017). Discovering Statistics\nUsing IBM SPSS\nStatistics. SAGE Publications.\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025).\nDiscovering Statistics Using\nJASP. SAGE Publications.\n\n\nJASP Team. (2025). JASP (Version 0.95.4)\n[Computer software]. https://jasp-stats.org/\n\n\nLambert, N. M., Negash, S., Stillman, T. F., Olmstead, S. B., &\nFincham, F. D. (2012). A love that doesn’t last: Pornography consumption\nand weakened commitment to one’s romantic partner. Journal of Social\nand Clinical Psychology, 31(4), 410–438.\n\n\nNorwegian Agency for Shared Services in Education, S. -, & Research.\n(2025). European social survey european research infrastructure (ESS\nERIC) (2025) ESS11 - integrated file, edition 4.0 [data set]. https://doi.org/10.21338/ess11e04_0\n\n\nR Core Team. (2025). R: A language and environment for statistical\ncomputing. R Foundation for Statistical Computing. https://www.R-project.org/",
     "crumbs": [
       "References"
     ]
@@ -134,7 +134,7 @@
     "href": "t3.html#sec-t3ILO",
     "title": "3  t-tests, one-way ANOVA and \\(\\chi^2\\) tests of independence",
     "section": "",
-    "text": "Run, interpret and report results from t-tests, one-way ANOVA and the \\(\\chi^2\\) test of independence\nCheck the assumptions of these tests",
+    "text": "Set-up, run and interpret t-tests, one-way ANOVAs and the \\(\\chi^2\\) tests of independence\nCheck the assumptions of these tests",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-tests, one-way ANOVA and $\\chi^2$ tests of independence</span>"
     ]
@@ -275,6 +275,246 @@
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>The impact of assumption violations on test results</span>"
+    ]
+  },
+  {
+    "objectID": "t4.html",
+    "href": "t4.html",
+    "title": "4  ANCOVA and (between-subjects) factorial ANOVA",
+    "section": "",
+    "text": "4.1 Learning outcomes\nAfter viewing the tutorial materials and following along with the demonstration, you can:",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANCOVA and (between-subjects) factorial ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "t4.html#sec-t4ILO",
+    "href": "t4.html#sec-t4ILO",
+    "title": "4  ANCOVA and (between-subjects) factorial ANOVA",
+    "section": "",
+    "text": "Set-up, run and interpret factorial ANOVAs and ANCOVAs for between-subjects designs\nCheck the assumptions of these tests",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANCOVA and (between-subjects) factorial ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "t4.html#sec-t4data",
+    "href": "t4.html#sec-t4data",
+    "title": "4  ANCOVA and (between-subjects) factorial ANOVA",
+    "section": "4.2 Datasets",
+    "text": "4.2 Datasets\nThis demonstration uses the datasets goggles and puppy_love which were prepared by Andy Field and included in Field, van Doorn and Wagenmakers (2025).\ngoggles contains (fictional) data from a 2 x 3 factorial design with 2 between-subjects IVs. IV1 is attractiveness of face stimulus (Attractive or Unattractive) and IV2 is dosage of alcohol (Placebo, Low, or High). Participants were assigned to either the placebo, low dose, or high does group and gave attractiveness ratings (DV) to either attractive or unattractive faces.\npuppy_love contains (fictional) data from a design with one, 3-level, between-subjects IV (dose of puppies: Control, 15 minutes, and 30 minutes of puppy therapy) and one DV (Happiness after therapy, 0-10). The dataset also includes the covariate Love of puppies measured on a scale of 0-7.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANCOVA and (between-subjects) factorial ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "t4.html#sec-t4vid",
+    "href": "t4.html#sec-t4vid",
+    "title": "4  ANCOVA and (between-subjects) factorial ANOVA",
+    "section": "4.3 Videos",
+    "text": "4.3 Videos\nComing soon…\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANCOVA and (between-subjects) factorial ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "t5.html",
+    "href": "t5.html",
+    "title": "5  ANOVAs for repeated measures and mixed designs",
+    "section": "",
+    "text": "5.1 Learning outcomes\nAfter viewing the tutorial materials and following along with the demonstration, you can:",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>ANOVAs for repeated measures and mixed designs</span>"
+    ]
+  },
+  {
+    "objectID": "t5.html#sec-t5ILO",
+    "href": "t5.html#sec-t5ILO",
+    "title": "5  ANOVAs for repeated measures and mixed designs",
+    "section": "",
+    "text": "Set-up, run and interpret ANOVAs for repeated-measures (RM) and mixed designs\nCheck the assumptions of these tests",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>ANOVAs for repeated measures and mixed designs</span>"
+    ]
+  },
+  {
+    "objectID": "t5.html#sec-t5data",
+    "href": "t5.html#sec-t5data",
+    "title": "5  ANOVAs for repeated measures and mixed designs",
+    "section": "5.2 Datasets",
+    "text": "5.2 Datasets\nThis demonstration uses the dataset PastryBirdsMixed which you can download here. The file contains (fictional) data which look at sausage roll (saucijzenbroodje) preference in birds from the Corvid family. This is a 3 x 2 x 2 mixed design: IV1 (between-subjects) is Bird (Crow, Jackdaw, or Magpie); IV2 (within-subjects) is Baker (Albert Heijn/AH or Kiosk); IV3 (within-subjects) is Filling (Meat or Vegatarian). The DV is the number of times the bird pecked at the sausage roll upon presentation.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>ANOVAs for repeated measures and mixed designs</span>"
+    ]
+  },
+  {
+    "objectID": "t5.html#sec-t5vid",
+    "href": "t5.html#sec-t5vid",
+    "title": "5  ANOVAs for repeated measures and mixed designs",
+    "section": "5.3 Videos",
+    "text": "5.3 Videos\nComing soon…",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>ANOVAs for repeated measures and mixed designs</span>"
+    ]
+  },
+  {
+    "objectID": "t6.html",
+    "href": "t6.html",
+    "title": "6  Correlation and bivariate regression",
+    "section": "",
+    "text": "6.1 Learning outcomes\nAfter viewing the tutorial materials and following along with the demonstration, you can:",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Correlation and bivariate regression</span>"
+    ]
+  },
+  {
+    "objectID": "t6.html#sec-t6ILO",
+    "href": "t6.html#sec-t6ILO",
+    "title": "6  Correlation and bivariate regression",
+    "section": "",
+    "text": "Compute and interpret (partial) correlations\nSet up, run and interpret simple (bivariate) linear regression",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Correlation and bivariate regression</span>"
+    ]
+  },
+  {
+    "objectID": "t6.html#sec-t6data",
+    "href": "t6.html#sec-t6data",
+    "title": "6  Correlation and bivariate regression",
+    "section": "6.2 Datasets",
+    "text": "6.2 Datasets\nThis demonstration uses the datasets exam_anxiety and album_sales which were prepared by Andy Field and included in Field, van Doorn and Wagenmakers (2025).\nexam_anxiety contains (fictional) data measuring the variables Time Spent Revising, Exam Performance (%), Exam Anxiety and Sex (female/male).\nalbum_sales contains (fictional) information on album sales for different bands. The variables are Adverts (Advertising budget in thousands of GBP), Sales (Album sales in units of thousands), Airplay (Number of plays on the radio) and Image (Band’s image rating from 0-10).",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Correlation and bivariate regression</span>"
+    ]
+  },
+  {
+    "objectID": "t6.html#sec-t6vid",
+    "href": "t6.html#sec-t6vid",
+    "title": "6  Correlation and bivariate regression",
+    "section": "6.3 Videos",
+    "text": "6.3 Videos\nComing soon…\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Correlation and bivariate regression</span>"
+    ]
+  },
+  {
+    "objectID": "t7.html",
+    "href": "t7.html",
+    "title": "7  Multiple regression",
+    "section": "",
+    "text": "7.1 Learning outcomes\nAfter viewing the tutorial materials and following along with the demonstration, you can:",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple regression</span>"
+    ]
+  },
+  {
+    "objectID": "t7.html#sec-t7ILO",
+    "href": "t7.html#sec-t7ILO",
+    "title": "7  Multiple regression",
+    "section": "",
+    "text": "Set-up, run and interpret linear regression models\nCheck the asumptions of linear regression",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple regression</span>"
+    ]
+  },
+  {
+    "objectID": "t7.html#sec-t7data",
+    "href": "t7.html#sec-t7data",
+    "title": "7  Multiple regression",
+    "section": "7.2 Datasets",
+    "text": "7.2 Datasets\nThis demonstration uses the dataset album_sales which was prepared by Andy Field and included in Field, van Doorn and Wagenmakers (2025). This dataset contains (fictional) information on album sales for different bands. The variables are Adverts (Advertising budget in thousands of GBP), Sales (Album sales in units of thousands), Airplay (Number of plays on the radio) and Image (Band’s image rating from 0-10).",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple regression</span>"
+    ]
+  },
+  {
+    "objectID": "t7.html#sec-t7vid",
+    "href": "t7.html#sec-t7vid",
+    "title": "7  Multiple regression",
+    "section": "7.3 Videos",
+    "text": "7.3 Videos\nComing soon…\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple regression</span>"
+    ]
+  },
+  {
+    "objectID": "t8.html",
+    "href": "t8.html",
+    "title": "8  Moderation and Mediation",
+    "section": "",
+    "text": "8.1 Learning outcomes\nAfter viewing the tutorial materials and following along with the demonstration, you can:",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Moderation and Mediation</span>"
+    ]
+  },
+  {
+    "objectID": "t8.html#sec-t8ILO",
+    "href": "t8.html#sec-t8ILO",
+    "title": "8  Moderation and Mediation",
+    "section": "",
+    "text": "Set-up, run and interpret moderation and mediation (regression) models",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Moderation and Mediation</span>"
+    ]
+  },
+  {
+    "objectID": "t8.html#sec-t8data",
+    "href": "t8.html#sec-t8data",
+    "title": "8  Moderation and Mediation",
+    "section": "8.2 Datasets",
+    "text": "8.2 Datasets\nThe moderation demonstration uses the dataset video_games which was prepared by Andy Field and included in Field, van Doorn and Wagenmakers (2025). The dataset includes the variables Aggression (DV), Video games (hours per week) (IV1), and Callous Unemotional Traits (IV2/Moderator).\nThe mediation demonstration uses the dataset lambert_2012 which is based on data from the study of Lambert et al. (2012) on pornography use and infidelity, and is included in Field, van Doorn and Wagenmakers (2025). IV1 is Porn consumption (log-transformed), IV2 (the mediator) is Relationship commitment, and the DV is Physical infidelity.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Moderation and Mediation</span>"
+    ]
+  },
+  {
+    "objectID": "t8.html#sec-t8vid",
+    "href": "t8.html#sec-t8vid",
+    "title": "8  Moderation and Mediation",
+    "section": "8.3 Videos",
+    "text": "8.3 Videos\nComing soon…\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.\n\n\nLambert, N. M., Negash, S., Stillman, T. F., Olmstead, S. B., & Fincham, F. D. (2012). A love that doesn’t last: Pornography consumption and weakened commitment to one’s romantic partner. Journal of Social and Clinical Psychology, 31(4), 410–438.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Moderation and Mediation</span>"
+    ]
+  },
+  {
+    "objectID": "t9.html",
+    "href": "t9.html",
+    "title": "9  Principal Components Analysis (PCA) and reliability analysis",
+    "section": "",
+    "text": "9.1 Learning outcomes\nAfter viewing the tutorial materials and following along with the demonstration, you can:",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Principal Components Analysis (PCA) and reliability analysis</span>"
+    ]
+  },
+  {
+    "objectID": "t9.html#sec-t9ILO",
+    "href": "t9.html#sec-t9ILO",
+    "title": "9  Principal Components Analysis (PCA) and reliability analysis",
+    "section": "",
+    "text": "Set-up, run and interpret PCA and reliability analysis",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Principal Components Analysis (PCA) and reliability analysis</span>"
+    ]
+  },
+  {
+    "objectID": "t9.html#sec-t9data",
+    "href": "t9.html#sec-t9data",
+    "title": "9  Principal Components Analysis (PCA) and reliability analysis",
+    "section": "9.2 Datasets",
+    "text": "9.2 Datasets\nThe moderation demonstration uses the dataset field2017_SAQ which was prepared by Andy Field and included in Field (2017). The (fictional) dataset contains responses to questions about various aspects of statistics anxiety.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Principal Components Analysis (PCA) and reliability analysis</span>"
+    ]
+  },
+  {
+    "objectID": "t9.html#sec-t9vid",
+    "href": "t9.html#sec-t9vid",
+    "title": "9  Principal Components Analysis (PCA) and reliability analysis",
+    "section": "9.3 Videos",
+    "text": "9.3 Videos\nComing soon…\n\n\n\n\nField, A. P. (2017). Discovering Statistics Using IBM SPSS Statistics. SAGE Publications.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Principal Components Analysis (PCA) and reliability analysis</span>"
     ]
   }
 ]

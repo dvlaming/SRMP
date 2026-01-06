@@ -1,0 +1,18 @@
+# Moderation and Mediation  {#sec-t8}
+
+
+## Learning outcomes {#sec-t8ILO}
+
+After viewing the tutorial materials and following along with the demonstration, you can:
+
+1. Set-up, run and interpret moderation and mediation (regression) models
+
+## Datasets {#sec-t8data}
+
+The moderation demonstration uses the dataset [**video_games**](data/video_games.jasp) which was prepared by Andy Field and included in Field, van Doorn and Wagenmakers [-@field2025]. The dataset includes the variables `Aggression` (DV), `Video games (hours per week)` (IV1), and `Callous Unemotional Traits` (IV2/Moderator). 
+
+The mediation demonstration uses the dataset [**lambert_2012**](data/lambert_2012.jasp) which is based on data from the study of Lambert et al. [-@lambert2012love] on pornography use and infidelity, and is included in Field, van Doorn and Wagenmakers [-@field2025]. IV1 is `Porn consumption` (log-transformed), IV2 (the mediator) is `Relationship commitment`, and the DV is `Physical infidelity`. 
+
+## Videos {#sec-t8vid}
+
+Coming soon...

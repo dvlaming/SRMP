@@ -1,0 +1,21 @@
+# ANCOVA and (between-subjects) factorial ANOVA {#sec-t4}
+
+
+## Learning outcomes {#sec-t4ILO}
+
+After viewing the tutorial materials and following along with the demonstration, you can:
+
+1. Set-up, run and interpret factorial ANOVAs and ANCOVAs for between-subjects designs
+2. Check the assumptions of these tests
+
+## Datasets {#sec-t4data}
+
+This demonstration uses the datasets [**goggles**](data/goggles.jasp) and [**puppy_love**](data/puppy_love.jasp) which were prepared by Andy Field and included in Field, van Doorn and Wagenmakers [-@field2025]. 
+
+**goggles** contains (fictional) data from a 2 x 3 factorial design with 2 between-subjects IVs. IV1 is `attractiveness of face stimulus` (Attractive or Unattractive) and IV2 is `dosage of alcohol` (Placebo, Low, or High). Participants were assigned to either the placebo, low dose, or high does group and gave attractiveness ratings (DV) to either attractive or unattractive faces.
+
+**puppy_love** contains (fictional) data from a design with one, 3-level, between-subjects IV (`dose of puppies`: Control, 15 minutes, and 30 minutes of puppy therapy) and one DV (`Happiness after therapy`, 0-10). The dataset also includes the covariate `Love of puppies` measured on a scale of 0-7. 
+
+## Videos {#sec-t4vid}
+
+Coming soon...

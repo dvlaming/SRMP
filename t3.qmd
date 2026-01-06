@@ -5,7 +5,7 @@
 
 After viewing the tutorial materials and following along with the demonstration, you can:
 
-1. Run, interpret and report results from t-tests, one-way ANOVA and the $\chi^2$ test of independence
+1. Set-up, run and interpret t-tests, one-way ANOVAs and the $\chi^2$ tests of independence
 2. Check the assumptions of these tests
 
 ## Datasets {#sec-t3data}

@@ -1,8 +1,10 @@
 # Preface {.unnumbered}
 
-Welcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology tutorials. In session 2025/26, we will be working with JASP which can be downloaded [here](https://jasp-stats.org/download/).
+Welcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology tutorials. In session 2025/26, we will be working with JASP [@JASP2025] which can be downloaded [here](https://jasp-stats.org/download/). 
 
-Every tutorial page will feature a video demonstrations and a download link for the dataset used in the video. Although not part of the course this year, code to run the featured analyses in the R programming language R [@baseR] will also be included, for the curious.    
+Every tutorial page will feature a video demonstration, and these are often based on examples presented in the course textbook, _Discovering Statistics using JASP_ [@field2025], and the accompanying datasets prepared by Andy Field. All of these datasets can be downloaded directly from the textbook's [companion website](https://discoverjasp.com/pages/data). 
+
+Although not part of the course this year, code to run the featured analyses in the R programming language [@baseR] will also be included, for the curious.    
 
 For questions, please [get in touch](mailto:d.fleming@uva.nl)!
 

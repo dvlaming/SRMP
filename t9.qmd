@@ -1,0 +1,16 @@
+# Principal Components Analysis (PCA) and reliability analysis  {#sec-t9}
+
+
+## Learning outcomes {#sec-t9ILO}
+
+After viewing the tutorial materials and following along with the demonstration, you can:
+
+1. Set-up, run and interpret PCA and reliability analysis 
+
+## Datasets {#sec-t9data}
+
+The moderation demonstration uses the dataset [**field2017_SAQ**](data/field2017_SAQ.jasp) which was prepared by Andy Field and included in Field [-@field2017]. The (fictional) dataset contains responses to questions about various aspects of statistics anxiety. 
+
+## Videos {#sec-t9vid}
+
+Coming soon...

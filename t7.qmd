@@ -1,0 +1,17 @@
+# Multiple regression  {#sec-t7}
+
+
+## Learning outcomes {#sec-t7ILO}
+
+After viewing the tutorial materials and following along with the demonstration, you can:
+
+1. Set-up, run and interpret linear regression models
+2. Check the asumptions of linear regression
+
+## Datasets {#sec-t7data}
+
+This demonstration uses the dataset [**album_sales**](data/album_sales.jasp) which was prepared by Andy Field and included in Field, van Doorn and Wagenmakers [-@field2025]. This dataset contains (fictional) information on album sales for different bands. The variables are `Adverts` (Advertising budget in thousands of GBP), `Sales` (Album sales in units of thousands), `Airplay` (Number of plays on the radio) and `Image` (Band's image rating from 0-10). 
+
+## Videos {#sec-t7vid}
+
+Coming soon...
