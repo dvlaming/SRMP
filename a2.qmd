@@ -8,12 +8,55 @@ Normally, we do not know whether $H_0$ or $H_1$ is true, but simulations allow u
  
 ```{r}
 
+library(dplyr)
+library(ggplot2)
+library(tibble)
+
 ## adapted from: https://github.com/lmu-osc/Introduction-Simulations-in-R/blob/main/exercise_script_with_solutions.R
+
 simT <- function(n1, n2, m1, m2, sd1, sd2){
   x1 <- rnorm(n1,m1,sd1)
   x2 <- rnorm(n2,m2,sd2)
   t.test(x1, x2, var.equal = TRUE)$p.value # assume equal variances
 }
+
+set.seed(282061222)
+
+n1<-seq(30,120,10)
+n2<-seq(20,110,10)
+n3<-seq(10,100,10)
+
+eqres<-numeric(length(n1))
+uneqres<-numeric(length(n1))
+uneqsampres<-numeric(length(n1))
+hiuneqsampres<-numeric(length(n1))
+
+for(i in 1:length(n1)){
+  eqres[i]<-mean(replicate(10000, simT(n1[i],n1[i],0,0,1,1))<.05) # equal var
+  uneqres[i]<-mean(replicate(10000, simT(n1[i],n1[i],0,0,1,2))<.05) # unequal var
+  uneqsampres[i]<-mean(replicate(10000, simT(n1[i],n2[i],0,0,1,2))<.05) # unequal var and sample size
+  hiuneqsampres[i]<-mean(replicate(10000, simT(n1[i],n3[i],0,0,1,2))<=.05) # unequal var and sample size
+}
+
+simdat<-tibble::tibble(
+  sizenone=rep(seq(30,120,10),4),
+  sim=c(rep("Equal var.\nequaln",length(n1)),
+        rep("Unequal var.\nequal n",length(n1)),
+        rep("Unequal var.\ndiff. n1 - n2 = 10",length(n1)),
+        rep("Unequal var.\ndiff. n1 - n2 = 20",length(n1))),
+  res=c(eqres,uneqres,uneqsampres,hiuneqsampres)
+  )
+
+simdat$sim<-factor(simdat$sim,c("Equal var.\nequaln","Unequal var.\nequal n",
+                         "Unequal var.\ndiff. n1 - n2 = 10",
+                         "Unequal var.\ndiff. n1 - n2 = 20"))
+
+plot<-ggplot2::ggplot(data=simdat,ggplot2::aes(x = sizenone, y = res,
+                                          group = sim, color = sim)) +
+  ggplot2::geom_point()+
+  ggplot2::geom_line()
+  
+
 ```
 
 
@@ -28,25 +71,8 @@ Coming soon...
 ```{r}
 #| fig-height: 10
 
-## adapted from: https://github.com/lmu-osc/Introduction-Simulations-in-R/blob/main/exercise_script_with_solutions.R
 
-set.seed(291086)
 
-n1<-seq(30,120,10)
-n2<-seq(20,110,10)
-n3<-seq(10,100,10)
-
-eqres<-numeric(length(n1))
-uneqres<-numeric(length(n1))
-uneqsampres<-numeric(length(n1))
-hiuneqsampres<-numeric(length(n1))
-
-# for(i in 1:length(n1)){
-#   eqres[i]<-mean(replicate(5000, simT(n1[i],n1[i],0,0,1,1))<=.05) # equal var
-#   uneqres[i]<-mean(replicate(5000, simT(n1[i],n1[i],0,0,1,2))<=.05) # unequal var
-#   uneqsampres[i]<-mean(replicate(5000, simT(n1[i],n2[i],0,0,1,2))<=.05) # unequal var and sample size
-#   hiuneqsampres[i]<-mean(replicate(5000, simT(n1[i],n3[i],0,0,1,2))<=.05)
-# }
 # 
 # simTRep <- replicate(1000, simT(50,50,0,0,1,1)) # equal var
 # simTRep_uneq <- replicate(1000, simT(50,50,0,0,1,1.5)) # unequal var
