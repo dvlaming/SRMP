@@ -144,77 +144,80 @@ ggplot2::ggsave("./images/boxplot_uitleg.png",puitleg)
     
 :::
 
-### QQ plots {#sec-t2QQ}
+### QQ and density/distribution plots {#sec-t2QQ}
+
+In the figure below you can see the impact of different types of deviation from normality on how data appear in QQ and density plots. Note the correspondence between the sample quantiles and the theoretical quantiles in the case of the (near) normal distribution, and how this correspondence varies in the skewed or non-mesokurtic distributions underneath.  
 
 ```{r}
 
 library(gk) # for g and h distributions
-library(jaspGraphs)
+# library(jaspGraphs)
 library(patchwork)
 
 # https://cran.r-project.org/web/packages/gk/refman/gk.html#dgh
 # https://arxiv.org/pdf/1706.06889
-
-data<-tibble::tibble(
-  Type=c(rep("Normal",1000),rep("Negative Skew",1000),
-         rep("Positive Skew",1000), rep("Leptokurtic",1000),
-         rep("Platykurtic",1000)),
-  disty=c(gk::rgh(1000, 0, 1, 0, 0, c = 0.8, type = c("generalised", "tukey")),
-         gk::rgh(1000, 0, 1, .99, 0, c = 0.8, type = c("generalised", "tukey")),
-         gk::rgh(1000, 0, 1, -.99, 0, c = 0.8, type = c("generalised", "tukey")),
-         gk::rgh(1000, 0, 1, 0, 0.1, c = 0.8, type = c("generalised", "tukey")),
-         gk::rgh(1000, 0, 1, 0, -0.1, c = 0.8, type = c("generalised", "tukey"))
-         )
-)
-
-data$Type<-factor(data$Type,c("Normal","Negative Skew","Positive Skew",
-                              "Leptokurtic","Platykurtic"))
-
-densities<-data %>% 
-  ggplot2::ggplot() +
-  ggplot2::theme_classic() +
-  ggplot2::geom_density(ggplot2::aes(x = disty),
-                        color = "lightgoldenrod", 
-                        fill = "lightgoldenrod") +
-  # jaspGraphs::geom_rangeframe() +
-  ggplot2::facet_wrap(facets = ggplot2::vars(Type),nrow = 5, scales = "free",
-                      strip.position = "left") +
-  ggplot2::labs(x = "Value",  y = "Density") +
-  ggplot2::theme(axis.title.y = ggplot2::element_blank(),
-                 axis.text.y = ggplot2::element_blank(),
-                 strip.placement = "outside")
-  
-qqs<-data %>% 
-  ggplot2::ggplot(ggplot2::aes(sample = disty)) +
-  ggplot2::theme_classic() +
-  ggplot2::geom_qq() +
-  ggplot2::geom_qq_line(color = "red") +
-  # jaspGraphs::geom_rangeframe() +
-  ggplot2::facet_wrap(facets = ggplot2::vars(Type),
-                      nrow = 5, scales = "free") +
-  ggplot2::labs(y = "Sample Quantiles", x = "Theoretical Quantiles") +
-  ggplot2::theme(
-    strip.background = ggplot2::element_blank(),
-    strip.text = ggplot2::element_blank())
-
-#ggplot2::calc_element('axis.title.x', t)
-combiplot<-densities+qqs
-
-ggplot2::ggsave("./images/densqq.png",combiplot, width = 20, height = 20, units = "cm")
-
-ggplot2::ggsave("./images/qq.png",qqs, width = 10, height = 20, units = "cm")
-
 ## https://stats.stackexchange.com/questions/594745/how-to-generated-skewed-distribution-with-specific-means-and-variances-in-r
-
 # https://forum.posit.co/t/how-can-we-create-right-left-skewed-normal-distribution-curve-in-r/39115/8
-
 # https://www.sthda.com/english/wiki/histogram-and-density-plots-r-base-graphs
 
 
 
-## use package "gh" for kurtotsis and skew
+data<-tibble::tibble(
+  Type=c(rep("Normal",1000),rep("Positive Skew",1000),
+         rep("Negative Skew",1000), rep("Leptokurtic\n(heavy tails)",1000),
+         rep("Platykurtic\n(light tails)",1000)),
+  disty=c(gk::rgh(1000, 0, 1, 0, 0, c = 0.8, type = c("generalised", "tukey")),
+         gk::rgh(1000, 0, 1, .99, 0, c = 0.8, type = c("generalised", "tukey")),
+         gk::rgh(1000, 0, 1, -.99, 0, c = 0.8, type = c("generalised", "tukey")),
+         gk::rgh(1000, 0, 1, 0, 0.12, c = 0.8, type = c("generalised", "tukey")),
+         gk::rgh(1000, 0, 1, 0, -0.12, c = 0.8, type = c("generalised", "tukey"))
+         )
+)
 
-## gk::rgh(1000, 0, 1, 0.4, 0, c = 0.8, type = c("generalised", "tukey"))
+data$Type<-factor(data$Type,c("Normal","Negative Skew","Positive Skew",
+                              "Leptokurtic\n(heavy tails)","Platykurtic\n(light tails)"))
+
+densities<-data %>% 
+  ggplot2::ggplot() +
+  ggplot2::theme_bw() +
+  ggplot2::geom_density(ggplot2::aes(x = disty),
+                        color = "lightgoldenrod", 
+                        fill = "lightgoldenrod") +
+  # jaspGraphs::geom_rangeframe() +
+  ggplot2::facet_wrap(facets = ggplot2::vars(Type),nrow = 5,
+                      strip.position = "right") +
+  ggplot2::labs(x = "Value",  y = "Density") +
+  ggplot2::scale_y_continuous(expand = ggplot2::expansion(mult = c(0, .1))) +
+  ggplot2::theme(strip.text = ggplot2::element_text(size = 11),
+                 strip.background = ggplot2::element_blank(),
+                 axis.title.y = ggplot2::element_blank(),
+                 axis.text.y = ggplot2::element_blank(),
+                 axis.ticks.y = ggplot2::element_blank(),
+                 panel.grid = ggplot2::element_blank())
+  
+qqs<-data %>% 
+  ggplot2::ggplot(ggplot2::aes(sample = disty)) +
+  ggplot2::theme_bw() +
+  ggplot2::geom_qq(shape=21,fill="grey") +
+  ggplot2::geom_qq_line(color = "red") +
+  # jaspGraphs::geom_rangeframe() +
+  ggplot2::facet_wrap(facets = ggplot2::vars(Type),
+                      nrow = 5, scales = "free_y") +
+  ggplot2::labs(y = "Sample Quantiles", x = "Theoretical Quantiles") +
+  ggplot2::theme(
+    strip.background = ggplot2::element_blank(),
+    strip.text = ggplot2::element_blank(),
+    panel.grid = ggplot2::element_blank())
+
+#https://ggplot2.tidyverse.org/reference/calc_element.html
+#ggplot2::calc_element('axis.title.x', t)
+
+combiplot<-qqs+densities
+
+ggplot2::ggsave("./images/densqq.png",combiplot, width = 20, height = 20, units = "cm")
+
+# https://github.com/thomasp85/patchwork/issues/361
+
 
 ```
 
