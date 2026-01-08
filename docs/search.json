@@ -54,7 +54,7 @@
     "href": "t1.html#sec-t1ILO",
     "title": "1  Data wrangling and visualization in JASP",
     "section": "",
-    "text": "Filter data according to certain values of cases (select cases)\nCompute new variables from existing variables\nRecode existing variables into new variables\nRun descriptive statistics and frequencies",
+    "text": "Filter data according to certain values of cases (select cases)\nCompute new variables from existing variables\nRecode existing variables into new variables\nRun descriptive statistics and frequencies\nVisualize data",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data wrangling and visualization in JASP</span>"
     ]
@@ -74,7 +74,7 @@
     "href": "t1.html#sec-t1vid",
     "title": "1  Data wrangling and visualization in JASP",
     "section": "1.3 Videos",
-    "text": "1.3 Videos\n\n\n\n\n\n\nNorwegian Agency for Shared Services in Education, S. -, & Research. (2025). European social survey european research infrastructure (ESS ERIC) (2025) ESS11 - integrated file, edition 4.0 [data set]. https://doi.org/10.21338/ess11e04_0",
+    "text": "1.3 Videos\n\n1.3.1 Wrangling\n\n\n\n\n1.3.2 Plotting\n\n\n\n\n\n\nNorwegian Agency for Shared Services in Education, S. -, & Research. (2025). European social survey european research infrastructure (ESS ERIC) (2025) ESS11 - integrated file, edition 4.0 [data set]. https://doi.org/10.21338/ess11e04_0",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data wrangling and visualization in JASP</span>"
     ]
@@ -154,7 +154,7 @@
     "href": "t3.html#sec-t3vid",
     "title": "3  t-tests, one-way ANOVA and \\(\\chi^2\\) tests of independence",
     "section": "3.3 Videos",
-    "text": "3.3 Videos\nComing soon…",
+    "text": "3.3 Videos",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-tests, one-way ANOVA and $\\chi^2$ tests of independence</span>"
     ]
@@ -312,7 +312,7 @@
     "href": "t4.html#sec-t4vid",
     "title": "4  ANCOVA and (between-subjects) factorial ANOVA",
     "section": "4.3 Videos",
-    "text": "4.3 Videos\nComing soon…\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.",
+    "text": "4.3 Videos\n\n\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>ANCOVA and (between-subjects) factorial ANOVA</span>"
     ]

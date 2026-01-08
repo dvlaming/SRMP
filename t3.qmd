@@ -14,7 +14,7 @@ This demonstration uses the dataset **ReducedESS11** which you can download [her
 
 ## Videos {#sec-t3vid}
 
-Coming soon...
+<iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=dfdc1954-1751-4687-9082-eab44c230c7e&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="SRMP3_ttests_ANOVA_chi.mp4"></iframe>
 
 
 

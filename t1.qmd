@@ -9,6 +9,7 @@ After viewing the tutorial materials and following along with the demonstration,
 2. Compute new variables from existing variables
 3. Recode existing variables into new variables
 4. Run descriptive statistics and frequencies
+5. Visualize data 
 
 ## Datasets {#sec-t1data}
 
@@ -36,5 +37,10 @@ The dataset consists of 7 variables:
 
 ## Videos {#sec-t1vid}
 
+### Wrangling
 
-<iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=ff4f9e0f-5471-4ef9-a24b-e2081fa093b2&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="SRMP_1.mp4"></iframe>
+<iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=ff4f9e0f-5471-4ef9-a24b-e2081fa093b2&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="SRMP_1.mp4"></iframe>
+
+### Plotting
+
+<iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=a34fabfb-6693-42c8-9e6f-0ba7775c0ee2&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="SRMP1_plots.mp4"></iframe>
