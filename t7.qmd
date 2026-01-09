@@ -14,4 +14,4 @@ This demonstration uses the dataset [**album_sales**](data/album_sales.jasp) whi
 
 ## Videos {#sec-t7vid}
 
-Coming soon...
+<iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=bef12f65-d635-4d38-9ceb-af03159d8c9c&nav=%7B%22playbackOptions%22%3A%7B%22startTimeInSeconds%22%3A261%7D%7D&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="SRMP6_corr_reg.mp4"></iframe>

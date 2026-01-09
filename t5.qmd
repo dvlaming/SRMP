@@ -14,4 +14,4 @@ This demonstration uses the dataset **PastryBirdsMixed** which you can download 
 
 ## Videos {#sec-t5vid}
 
-Coming soon...
+<iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=b5b25784-3c81-42e8-8286-ed2eb6d98c4a&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="SRMP5_rm_mixedANOVA.mp4"></iframe>

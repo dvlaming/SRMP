@@ -10,12 +10,10 @@ After viewing the tutorial materials and following along with the demonstration,
 
 ## Datasets {#sec-t6data}
 
-This demonstration uses the datasets [**exam_anxiety**](data/exam_anxiety.jasp) and [**album_sales**](data/album_sales.jasp) which were prepared by Andy Field and included in Field, van Doorn and Wagenmakers [-@field2025]. 
-
-**exam_anxiety** contains (fictional) data measuring the variables `Time Spent Revising`, `Exam Performance` (%), `Exam Anxiety` and `Sex` (female/male).
+This demonstration uses the dataset [**album_sales**](data/album_sales.jasp) which was prepared by Andy Field and included in Field, van Doorn and Wagenmakers [-@field2025]. 
 
 **album_sales** contains (fictional) information on album sales for different bands. The variables are `Adverts` (Advertising budget in thousands of GBP), `Sales` (Album sales in units of thousands), `Airplay` (Number of plays on the radio) and `Image` (Band's image rating from 0-10). 
 
 ## Videos {#sec-t6vid}
 
-Coming soon...
+<iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=bef12f65-d635-4d38-9ceb-af03159d8c9c&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="SRMP6_corr_reg.mp4"></iframe>

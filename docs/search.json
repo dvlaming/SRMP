@@ -352,7 +352,7 @@
     "href": "t5.html#sec-t5vid",
     "title": "5  ANOVAs for repeated measures and mixed designs",
     "section": "5.3 Videos",
-    "text": "5.3 Videos\nComing soon…",
+    "text": "5.3 Videos",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>ANOVAs for repeated measures and mixed designs</span>"
     ]
@@ -382,7 +382,7 @@
     "href": "t6.html#sec-t6data",
     "title": "6  Correlation and bivariate regression",
     "section": "6.2 Datasets",
-    "text": "6.2 Datasets\nThis demonstration uses the datasets exam_anxiety and album_sales which were prepared by Andy Field and included in Field, van Doorn and Wagenmakers (2025).\nexam_anxiety contains (fictional) data measuring the variables Time Spent Revising, Exam Performance (%), Exam Anxiety and Sex (female/male).\nalbum_sales contains (fictional) information on album sales for different bands. The variables are Adverts (Advertising budget in thousands of GBP), Sales (Album sales in units of thousands), Airplay (Number of plays on the radio) and Image (Band’s image rating from 0-10).",
+    "text": "6.2 Datasets\nThis demonstration uses the dataset album_sales which was prepared by Andy Field and included in Field, van Doorn and Wagenmakers (2025).\nalbum_sales contains (fictional) information on album sales for different bands. The variables are Adverts (Advertising budget in thousands of GBP), Sales (Album sales in units of thousands), Airplay (Number of plays on the radio) and Image (Band’s image rating from 0-10).",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Correlation and bivariate regression</span>"
     ]
@@ -392,7 +392,7 @@
     "href": "t6.html#sec-t6vid",
     "title": "6  Correlation and bivariate regression",
     "section": "6.3 Videos",
-    "text": "6.3 Videos\nComing soon…\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.",
+    "text": "6.3 Videos\n\n\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Correlation and bivariate regression</span>"
     ]
@@ -432,7 +432,7 @@
     "href": "t7.html#sec-t7vid",
     "title": "7  Multiple regression",
     "section": "7.3 Videos",
-    "text": "7.3 Videos\nComing soon…\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.",
+    "text": "7.3 Videos\n\n\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple regression</span>"
     ]
