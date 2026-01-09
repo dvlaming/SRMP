@@ -10,7 +10,7 @@ Although not part of the course this year, code to run the featured analyses in 
 
 The in-class group assignments (and data) for tutorials 2 - 8 can be accessed with the links below. **Please prepare a single document (.doc or .pdf) containing your answers and ensure that you upload on time via the submission points on canvas!**
 
-1. [Assignment 1](./assignments/SRMP_Assignment1.html)
+1. Assignment 1: [document](./assignments/SRMP_Assignment1.html), and [data](./assignments/Assignment1_data.jasp)
 
 
 For questions, please [get in touch](mailto:d.fleming@uva.nl)!
