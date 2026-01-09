@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "PPLE Skills and Research Methods for Psychology: tutorial manual",
     "section": "",
-    "text": "Preface\nWelcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology tutorials. In session 2025/26, we will be working with JASP (JASP Team, 2025) which can be downloaded here.\nEvery tutorial page features video demonstrations which are often based on examples presented in the course textbook, Discovering Statistics using JASP (Field et al., 2025), and the accompanying datasets prepared by Andy Field. All of these datasets can be downloaded directly from the textbook’s companion website.\nAlthough not part of the course this year, code to run the featured analyses in the R programming language (R Core Team, 2025) will also be included, for the curious.",
+    "text": "Preface\nWelcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology tutorials. In session 2025/26, we will be working with JASP (JASP Team, 2025) which can be downloaded here.\nEvery tutorial page features video demonstrations which are often based on examples presented in the course textbook, Discovering Statistics using JASP (Field et al., 2025), and the accompanying datasets prepared by Andy Field. All of these datasets can be downloaded directly from the textbook’s companion website.\nAlthough not part of the course this year, code to run the featured analyses in the R programming language (R Core Team, 2025) will also be included, for the curious.\nFor questions, please get in touch!",
     "crumbs": [
       "Preface"
     ]
@@ -522,7 +522,7 @@
     "href": "index.html#assignments",
     "title": "PPLE Skills and Research Methods for Psychology: tutorial manual",
     "section": "Assignments",
-    "text": "Assignments\nThe in-class group assignments (and data) for tutorials 2 - 8 can be accessed with the links below. Please prepare a single document (.doc or .pdf) containing your answers and ensure that you upload on time via the submission points on canvas!\n\nAssignment 1: document, and data\n\nFor questions, please get in touch!\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.\n\n\nJASP Team. (2025). JASP (Version 0.95.4) [Computer software]. https://jasp-stats.org/\n\n\nR Core Team. (2025). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/",
+    "text": "Assignments\nThe in-class group assignments (and data) for tutorials 2 - 8 can be accessed with the links below. Please prepare a single document (.doc or .pdf) containing your answers and ensure that you upload on time via the submission points on canvas!\n\nAssignment 1: document, and data\n\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.\n\n\nJASP Team. (2025). JASP (Version 0.95.4) [Computer software]. https://jasp-stats.org/\n\n\nR Core Team. (2025). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/",
     "crumbs": [
       "Preface"
     ]
