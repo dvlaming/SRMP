@@ -15,4 +15,4 @@ The mediation demonstration uses the dataset [**lambert_2012**](data/lambert_201
 
 ## Videos {#sec-t8vid}
 
-Coming soon...
+<iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=c94085f3-5d59-4965-b765-37126aad84a5&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="SRMP8_mod_med.mp4"></iframe>

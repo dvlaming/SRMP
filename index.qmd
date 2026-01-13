@@ -1,6 +1,6 @@
 # Preface {.unnumbered}
 
-Welcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology tutorials. In session 2025/26, we will be working with JASP [@JASP2025] which can be downloaded [here](https://jasp-stats.org/download/). 
+Welcome! In these pages you will find tutorial materials for the PPLE Skills and Research Methods for Psychology tutorials. In session 2025/26, we will be working with JASP [@JASP2025] which can be downloaded [here](https://jasp-stats.org/download/) or which can be accessed via connection to an [UvA virtual desktop](apps.uva.nl). 
 
 Every tutorial page features video demonstrations which are often based on examples presented in the course textbook, _Discovering Statistics using JASP_ [@field2025], and the accompanying datasets prepared by Andy Field. All of these datasets can be downloaded directly from the textbook's [companion website](https://discoverjasp.com/pages/data).
 
@@ -12,7 +12,17 @@ For questions, please [get in touch](mailto:d.fleming@uva.nl)!
 
 The in-class group assignments (and data) for tutorials 2 - 8 can be accessed with the links below. **Please prepare a single document (.doc or .pdf) containing your answers and ensure that you upload on time via the submission points on canvas!**
 
-1. Assignment 1: [document](./assignments/SRMP_Assignment1.html), and [data](./assignments/Assignment1_data.jasp)
+1. Assignment 1: [data](./assignments/Assignment1_data.jasp)
+2. Assignment 2: [data](./assignments/Assignment2_data.jasp)
+3. Assignment 3: 
+    + [part 1 data](./assignments/Assignment3_data_part1.jasp)
+    + [part 2 data](./assignments/Assignment3_data_part2.jasp)
+4. Assignment 4: [data](./assignments/Assignment4_data.jasp)
+5. Assignment 5: [data](./assignments/Assignment5_data.jasp)
+6. Assignment 6: [data](./assignments/Assignment6_data.jasp)
+7. Assignment 7: 
+    + [part 1 data](./assignments/Assignment7_data_part1.jasp)
+    + [part 2 data](./assignments/Assignment7_data_part2.jasp)
 
 
 
