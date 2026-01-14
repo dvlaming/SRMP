@@ -240,14 +240,14 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#normality" id="toc-normality" class="nav-link active" data-scroll-target="#normality"><span class="header-section-number">B.1</span> Normality</a></li>
-  <li><a href="#homogeneity-of-variances" id="toc-homogeneity-of-variances" class="nav-link" data-scroll-target="#homogeneity-of-variances"><span class="header-section-number">B.2</span> Homogeneity of variances</a>
+  <li><a href="#type-i-error-rate-alpha" id="toc-type-i-error-rate-alpha" class="nav-link active" data-scroll-target="#type-i-error-rate-alpha"><span class="header-section-number">B.1</span> Type-I error rate (<span class="math inline">\(\alpha\)</span>)</a>
   <ul class="collapse">
-  <li><a href="#type-i-error-rate-alpha" id="toc-type-i-error-rate-alpha" class="nav-link" data-scroll-target="#type-i-error-rate-alpha"><span class="header-section-number">B.2.1</span> Type-I error rate (<span class="math inline">\(\alpha\)</span>)</a></li>
-  <li><a href="#power-1---beta" id="toc-power-1---beta" class="nav-link" data-scroll-target="#power-1---beta"><span class="header-section-number">B.2.2</span> Power (1 - <span class="math inline">\(\beta\)</span>)</a></li>
+  <li><a href="#homogeneity-of-variances" id="toc-homogeneity-of-variances" class="nav-link" data-scroll-target="#homogeneity-of-variances"><span class="header-section-number">B.1.1</span> Homogeneity of variances</a></li>
+  <li><a href="#normality" id="toc-normality" class="nav-link" data-scroll-target="#normality"><span class="header-section-number">B.1.2</span> Normality</a></li>
   </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">B.2</span> Conclusion</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/dvlaming/SRMP/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/dvlaming/SRMP/blob/main/a2.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/dvlaming/SRMP/blob/main/a2.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -271,23 +271,38 @@ window.Quarto = {
 </header>
 
 
-<p>Although we have discussed checking for bias in the model, you will likely have noticed that assumption tests are very rarely reported in the psychological literature, which could lead you to question the influence that assumption violations have on inference.</p>
-<p>Normally, we do not know whether <span class="math inline">\(H_0\)</span> or <span class="math inline">\(H_1\)</span> is true, but simulations allow us to fix “population” parameters and then draw samples to investigate how robust our hypothesis tests are against assumption violations. For example, we can look at whether independent-samples t-tests produce results in line with our given <span class="math inline">\(\alpha\)</span> level by repeatedly drawing groups from a simulated population where <span class="math inline">\(\mu\)</span> = 0 (i.e., where both groups come from the same null population where there is no treatment effect) and calculating the proportion of significant test results. On the other hand, we can determine whether the power of a test is in line with expectations by drawing groups from populations with <strong>different</strong> values of <span class="math inline">\(\mu\)</span>, and counting the instances where the test detected the “true” effect.</p>
-<section id="normality" class="level2" data-number="B.1">
-<h2 data-number="B.1" class="anchored" data-anchor-id="normality"><span class="header-section-number">B.1</span> Normality</h2>
-<p>Coming soon…</p>
+<p>Although we have discussed checking for bias in our models, you will likely have noticed that assumption tests are very rarely reported in the psychological literature, which could lead you to question the influence that assumption violations have on inference.</p>
+<p>Normally, we do not know whether <span class="math inline">\(H_0\)</span> or <span class="math inline">\(H_1\)</span> is true, but simulations allow us to fix “population” parameters and then draw samples to investigate how robust our hypothesis tests are against assumption violations. For example, in the case of an independent samples t-test we can look at the long-run type-I error rate (<span class="math inline">\(\alpha\)</span>) of the test by repeatedly drawing samples from a simulated population where the true mean difference - <span class="math inline">\(\mu_{group 1}\)</span> - <span class="math inline">\(\mu_{group 1}\)</span>) - is equal to 0 and calculating the proportion of significant test results. Simulating in this way under conditions where test assumptions are met and comparing the results with simulations generated in the presence of assumption violations can give us information on the impact of these violations.</p>
+<section id="type-i-error-rate-alpha" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="type-i-error-rate-alpha"><span class="header-section-number">B.1</span> Type-I error rate (<span class="math inline">\(\alpha\)</span>)</h2>
+<section id="homogeneity-of-variances" class="level3" data-number="B.1.1">
+<h3 data-number="B.1.1" class="anchored" data-anchor-id="homogeneity-of-variances"><span class="header-section-number">B.1.1</span> Homogeneity of variances</h3>
+<p>On each simulation iteration, I drew two virtual groups of participants from a normal distribution with <span class="math inline">\(\mu\)</span> = 0 under four conditions:</p>
+<ol type="1">
+<li>Equal variances and sample sizes: <span class="math inline">\(\sigma\)</span> of both groups = 1</li>
+<li>Unequal variances and equal sample sizes: <span class="math inline">\(\sigma\)</span> group 1 = 1, <span class="math inline">\(\sigma\)</span> group 2 = 2</li>
+<li>Unequal variances and unequal sample sizes: <span class="math inline">\(\sigma\)</span> group 1 = 1, <span class="math inline">\(\sigma\)</span> group 2 = 2; difference between <span class="math inline">\(n\)</span> group 1 and <span class="math inline">\(n\)</span> group 2 = 10</li>
+<li>Unequal variances and unequal sample sizes: <span class="math inline">\(\sigma\)</span> group 1 = 1, <span class="math inline">\(\sigma\)</span> group 2 = 2; difference between <span class="math inline">\(n\)</span> group 1 and <span class="math inline">\(n\)</span> group 2 = 20</li>
+</ol>
+<p>In each of these four conditions, I iterated through sample sizes from <span class="math inline">\(n\)</span> group 1 = 30 - <span class="math inline">\(n\)</span> group 1 = 120, in steps of 10. For each of these sample size iterations, I ran 5,000 independent-samples t-tests and 5,000 Welch tests for each of the conditions presented above and saved the proportion of significant test results, assuming the typical <span class="math inline">\(\alpha\)</span> = .05. The results are shown below.</p>
+<p><img src="./images/simdata_var_type1.png" class="img-fluid"> We can see that the conventional independent-samples t-tests fare well when sample sizes are equal, but we see type-I error rates in excess of .05 when both variances and sample sizes are unequal across groups, particularly in smaller samples. In contrast, the Welch test (which does not assume equal variances) appears robust to sample size and variance inequalities, returning 5% false-positives under all conditions.</p>
 </section>
-<section id="homogeneity-of-variances" class="level2" data-number="B.2">
-<h2 data-number="B.2" class="anchored" data-anchor-id="homogeneity-of-variances"><span class="header-section-number">B.2</span> Homogeneity of variances</h2>
-<section id="type-i-error-rate-alpha" class="level3" data-number="B.2.1">
-<h3 data-number="B.2.1" class="anchored" data-anchor-id="type-i-error-rate-alpha"><span class="header-section-number">B.2.1</span> Type-I error rate (<span class="math inline">\(\alpha\)</span>)</h3>
-<p><img src="./images/simdata_uneqvar.png" class="img-fluid"></p>
+<section id="normality" class="level3" data-number="B.1.2">
+<h3 data-number="B.1.2" class="anchored" data-anchor-id="normality"><span class="header-section-number">B.1.2</span> Normality</h3>
+<p>Here, for each iteration, I drew two virtual groups of participants under two conditions:</p>
+<ol type="1">
+<li>Both drawn from standard normal distributions with <span class="math inline">\(\mu\)</span> = 0 and <span class="math inline">\(\sigma\)</span> = 1</li>
+<li>Both drawn from positively skewed distributions with <span class="math inline">\(\mu\)</span> = 0 and <span class="math inline">\(\sigma\)</span> = 1, where skew in one distribution was ~.24 and ~.12 in the other.</li>
+</ol>
+<p>In each of these conditions, I once more iterated through sample sizes from <span class="math inline">\(n\)</span> group 1 = 30 - <span class="math inline">\(n\)</span> group 1 = 120, in steps of 10. As above, I ran 5,000 independent-samples t-tests for each of the conditions saved the proportion of significant test results, assuming the typical <span class="math inline">\(\alpha\)</span> = .05.</p>
+<p><img src="./images/simdata_norm_type1.png" class="img-fluid"> Compared to the data drawn from normal distributions, we see inflated type-I error rates when the group distributions are skewed to differing degrees.</p>
 </section>
-<section id="power-1---beta" class="level3" data-number="B.2.2">
-<h3 data-number="B.2.2" class="anchored" data-anchor-id="power-1---beta"><span class="header-section-number">B.2.2</span> Power (1 - <span class="math inline">\(\beta\)</span>)</h3>
+</section>
+<section id="conclusion" class="level2" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">B.2</span> Conclusion</h2>
+<p>While a limited demonstration, hopefully this illustrates the problems that can arise from assumption violations of testing assumptions!</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -708,7 +723,7 @@ window.Quarto = {
     </div>   
     <div class="nav-footer-center">
 <p>CC-BY-SA-4.0 (2025) David Fleming</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dvlaming/SRMP/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/dvlaming/SRMP/blob/main/a2.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dvlaming/SRMP/blob/main/a2.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

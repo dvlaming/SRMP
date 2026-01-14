@@ -260,7 +260,7 @@
     "href": "a2.html",
     "title": "Appendix B — The impact of assumption violations on test results",
     "section": "",
-    "text": "B.1 Normality\nAlthough we have discussed checking for bias in the model, you will likely have noticed that assumption tests are very rarely reported in the psychological literature, which could lead you to question the influence that assumption violations have on inference.\nNormally, we do not know whether \\(H_0\\) or \\(H_1\\) is true, but simulations allow us to fix “population” parameters and then draw samples to investigate how robust our hypothesis tests are against assumption violations. For example, we can look at whether independent-samples t-tests produce results in line with our given \\(\\alpha\\) level by repeatedly drawing groups from a simulated population where \\(\\mu\\) = 0 (i.e., where both groups come from the same null population where there is no treatment effect) and calculating the proportion of significant test results. On the other hand, we can determine whether the power of a test is in line with expectations by drawing groups from populations with different values of \\(\\mu\\), and counting the instances where the test detected the “true” effect.\nComing soon…",
+    "text": "B.1 Type-I error rate (\\(\\alpha\\))\nAlthough we have discussed checking for bias in our models, you will likely have noticed that assumption tests are very rarely reported in the psychological literature, which could lead you to question the influence that assumption violations have on inference.\nNormally, we do not know whether \\(H_0\\) or \\(H_1\\) is true, but simulations allow us to fix “population” parameters and then draw samples to investigate how robust our hypothesis tests are against assumption violations. For example, in the case of an independent samples t-test we can look at the long-run type-I error rate (\\(\\alpha\\)) of the test by repeatedly drawing samples from a simulated population where the true mean difference - \\(\\mu_{group 1}\\) - \\(\\mu_{group 1}\\)) - is equal to 0 and calculating the proportion of significant test results. Simulating in this way under conditions where test assumptions are met and comparing the results with simulations generated in the presence of assumption violations can give us information on the impact of these violations.",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>The impact of assumption violations on test results</span>"
@@ -525,6 +525,28 @@
     "text": "Assignments\nThe in-class group assignments (and data) for tutorials 2 - 8 can be accessed with the links below. Please prepare a single document (.doc or .pdf) containing your answers and ensure that you upload on time via the submission points on canvas!\n\nAssignment 1: data\nAssignment 2: data\nAssignment 3:\n\npart 1 data\npart 2 data\n\nAssignment 4: data\nAssignment 5: data\nAssignment 6: data\nAssignment 7:\n\npart 1 data\npart 2 data\n\n\n\n\n\n\nField, A. P., Doorn, J. van, & Wagenmakers, E.-J. (2025). Discovering Statistics Using JASP. SAGE Publications.\n\n\nJASP Team. (2025). JASP (Version 0.95.4) [Computer software]. https://jasp-stats.org/\n\n\nR Core Team. (2025). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/",
     "crumbs": [
       "Preface"
+    ]
+  },
+  {
+    "objectID": "a2.html#type-i-error-rate-alpha",
+    "href": "a2.html#type-i-error-rate-alpha",
+    "title": "Appendix B — The impact of assumption violations on test results",
+    "section": "",
+    "text": "B.1.1 Homogeneity of variances\nOn each simulation iteration, I drew two virtual groups of participants from a normal distribution with \\(\\mu\\) = 0 under four conditions:\n\nEqual variances and sample sizes: \\(\\sigma\\) of both groups = 1\nUnequal variances and equal sample sizes: \\(\\sigma\\) group 1 = 1, \\(\\sigma\\) group 2 = 2\nUnequal variances and unequal sample sizes: \\(\\sigma\\) group 1 = 1, \\(\\sigma\\) group 2 = 2; difference between \\(n\\) group 1 and \\(n\\) group 2 = 10\nUnequal variances and unequal sample sizes: \\(\\sigma\\) group 1 = 1, \\(\\sigma\\) group 2 = 2; difference between \\(n\\) group 1 and \\(n\\) group 2 = 20\n\nIn each of these four conditions, I iterated through sample sizes from \\(n\\) group 1 = 30 - \\(n\\) group 1 = 120, in steps of 10. For each of these sample size iterations, I ran 5,000 independent-samples t-tests and 5,000 Welch tests for each of the conditions presented above and saved the proportion of significant test results, assuming the typical \\(\\alpha\\) = .05. The results are shown below.\n We can see that the conventional independent-samples t-tests fare well when sample sizes are equal, but we see type-I error rates in excess of .05 when both variances and sample sizes are unequal across groups, particularly in smaller samples. In contrast, the Welch test (which does not assume equal variances) appears robust to sample size and variance inequalities, returning 5% false-positives under all conditions.\n\n\nB.1.2 Normality\nHere, for each iteration, I drew two virtual groups of participants under two conditions:\n\nBoth drawn from standard normal distributions with \\(\\mu\\) = 0 and \\(\\sigma\\) = 1\nBoth drawn from positively skewed distributions with \\(\\mu\\) = 0 and \\(\\sigma\\) = 1, where skew in one distribution was ~.24 and ~.12 in the other.\n\nIn each of these conditions, I once more iterated through sample sizes from \\(n\\) group 1 = 30 - \\(n\\) group 1 = 120, in steps of 10. As above, I ran 5,000 independent-samples t-tests for each of the conditions saved the proportion of significant test results, assuming the typical \\(\\alpha\\) = .05.\n Compared to the data drawn from normal distributions, we see inflated type-I error rates when the group distributions are skewed to differing degrees.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>The impact of assumption violations on test results</span>"
+    ]
+  },
+  {
+    "objectID": "a2.html#conclusion",
+    "href": "a2.html#conclusion",
+    "title": "Appendix B — The impact of assumption violations on test results",
+    "section": "B.2 Conclusion",
+    "text": "B.2 Conclusion\nWhile a limited demonstration, hopefully this illustrates the problems that can arise from assumption violations of testing assumptions!",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>The impact of assumption violations on test results</span>"
     ]
   }
 ]

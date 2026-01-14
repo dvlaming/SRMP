@@ -1,38 +1,57 @@
 # The impact of assumption violations on test results {#sec-a2tests}
 
-Although we have discussed checking for bias in the model, you will likely have noticed that assumption tests are very rarely reported in the psychological literature, which could lead you to question the influence that assumption violations have on inference.
+Although we have discussed checking for bias in our models, you will likely have noticed that assumption tests are very rarely reported in the psychological literature, which could lead you to question the influence that assumption violations have on inference.
 
-Normally, we do not know whether $H_0$ or $H_1$ is true, but simulations allow us to fix "population" parameters and then draw samples to investigate how robust our hypothesis tests are against assumption violations. For example, we can look at whether independent-samples t-tests produce results in line with our given $\alpha$ level by repeatedly drawing groups from a simulated population where $\mu$ = 0 (i.e., where both groups come from the same null population where there is no treatment effect) and calculating the proportion of significant test results. On the other hand, we can determine whether the power of a test is in line with expectations by drawing groups from populations with **different**
- values of $\mu$, and counting the instances where the test detected the "true" effect. 
- 
- 
+Normally, we do not know whether $H_0$ or $H_1$ is true, but simulations allow us to fix "population" parameters and then draw samples to investigate how robust our hypothesis tests are against assumption violations. For example, in the case of an independent samples t-test we can look at the long-run type-I error rate ($\alpha$) of the test by repeatedly drawing samples from a simulated population where the true mean difference - $\mu_{group 1}$ - $\mu_{group 1}$) - is equal to 0 and calculating the proportion of significant test results. Simulating in this way under conditions where test assumptions are met and comparing the results with simulations generated in the presence of assumption violations can give us information on the impact of these violations. 
+
+## Type-I error rate ($\alpha$)
+
+
+### Homogeneity of variances
+
+
+On each simulation iteration, I drew two virtual groups of participants from a normal distribution with $\mu$ = 0 under four conditions:
+
+1. Equal variances and sample sizes: $\sigma$ of both groups = 1
+2. Unequal variances and equal sample sizes: $\sigma$ group 1 = 1, $\sigma$ group 2 = 2
+3. Unequal variances and unequal sample sizes: $\sigma$ group 1 = 1, $\sigma$ group 2 = 2; difference between $n$ group 1 and $n$ group 2 = 10
+4. Unequal variances and unequal sample sizes: $\sigma$ group 1 = 1, $\sigma$ group 2 = 2; difference between $n$ group 1 and $n$ group 2 = 20
+
+In each of these four conditions, I iterated through sample sizes from $n$ group 1 = 30 - $n$ group 1 = 120, in steps of 10. For each of these sample size iterations, I ran 5,000 independent-samples t-tests and 5,000 Welch tests for each of the conditions presented above and saved the proportion of significant test results, assuming the typical $\alpha$ = .05. The results are shown below.
+
 ```{r}
-# 
-# library(dplyr)
+
+library(dplyr)
 library(ggplot2)
-# library(tibble)
-# library(gk)
+library(tibble)
+library(gk)
+
 # 
 # ## Data generating process
 # ## Adapted from: https://github.com/lmu-osc/Introduction-Simulations-in-R/blob/main/exercise_script_with_solutions.R
 # 
-# simT <- function(n1, n2, m1, m2, sd1, sd2){
-#   x1 <- rnorm(n1,m1,sd1)
-#   x2 <- rnorm(n2,m2,sd2)
-#   t.test(x1, x2, var.equal = TRUE)$p.value # assume equal variances
-# }
-# 
-# simWelch <- function(n1, n2, m1, m2, sd1, sd2){
-#   x1 <- rnorm(n1,m1,sd1)
-#   x2 <- rnorm(n2,m2,sd2)
-#   t.test(x1, x2, var.equal = FALSE)$p.value # Welch test
-# }
-# 
-# 
-# set.seed(282061222)
-# 
-# nit<-5000
-# 
+simT <- function(n1, n2, m1, m2, sd1, sd2){
+  x1 <- rnorm(n1,m1,sd1)
+  x2 <- rnorm(n2,m2,sd2)
+  t.test(x1, x2, var.equal = TRUE)$p.value # assume equal variances
+}
+
+simWelch <- function(n1, n2, m1, m2, sd1, sd2){
+  x1 <- rnorm(n1,m1,sd1)
+  x2 <- rnorm(n2,m2,sd2)
+  t.test(x1, x2, var.equal = FALSE)$p.value # Welch test
+}
+
+simTskew <- function(n1, n2, m1, m2, sd1, sd2){
+  x1 <- gk::rgh(n1,m1,sd1,.1, 0, c = 0.8, type = c("generalised", "tukey"))
+  x2 <- gk::rgh(n2,m2,sd2,.05, 0, c = 0.8, type = c("generalised", "tukey"))
+  t.test(x1, x2, var.equal = TRUE)$p.value # assume equal variances
+}
+
+set.seed(282061222)
+
+nit<-5000
+
 # n1<-seq(30,120,10)
 # n2<-seq(20,110,10)
 # n3<-seq(10,100,10)
@@ -60,8 +79,6 @@ library(ggplot2)
 #   welch.hiuneqsampres[i]<-mean(replicate(nit, simWelch(n1[i],n3[i],0,0,1,2))<=.05) # unequal var and sample size
 # }
 # 
-# 
-# 
 # simdat<-tibble::tibble(
 #   sizenone=rep(seq(30,120,10),8),
 #   sim=rep(c(rep("Equal var.\nequal n",length(n1)),
@@ -77,72 +94,91 @@ library(ggplot2)
 #                          "Unequal var.\ndiff. n1 - n2 = 10",
 #                          "Unequal var.\ndiff. n1 - n2 = 20"))
 # 
-# 
 # saveRDS(simdat, "./data/simdata_a2_var.rds")
+# 
+# simdat<-readRDS("./data/simdata_a2_var.rds")
+# 
+# plot<-ggplot2::ggplot(data=simdat,ggplot2::aes(x = sizenone, y = res,
+#                                           group = sim, color = sim)) +
+#   ggplot2::theme_bw() +
+#   ggplot2::geom_point() +
+#   ggplot2::geom_line() +
+#   ggplot2::facet_wrap(facets = ggplot2::vars(test)) +
+#   ggplot2::labs(y = expression(paste("Type-I error rate (", alpha, ")")), x = "n of larger sample") +
+#   ggplot2::scale_y_continuous(limits = c(.045,.15),
+#                               breaks = seq(.05, .15, .01))+
+#   ggplot2::scale_x_continuous(limits = c(30,120),
+#                               breaks = seq(30, 120, 10))+
+#   ggplot2::geom_hline(yintercept = .05, linetype = "dashed",color = "red") +
+#   ggplot2::theme(legend.title=ggplot2::element_blank(),
+#                  legend.position=c(.885,.82),
+#                  legend.background = ggplot2::element_blank(),
+#                  legend.box.background = ggplot2::element_rect(colour = "black")) +
+#   ggplot2::scale_color_brewer(palette = "Dark2")
+# 
+# ggplot2::ggsave("./images/simdata_var_type1.png",plot)
 
-simdat<-readRDS("./data/simdata_a2_var.rds")
+```
 
-plot<-ggplot2::ggplot(data=simdat,ggplot2::aes(x = sizenone, y = res,
+![](./images/simdata_var_type1.png)
+We can see that the conventional independent-samples t-tests fare well when sample sizes are equal, but we see type-I error rates in excess of .05 when both variances and sample sizes are unequal across groups, particularly in smaller samples. In contrast, the Welch test (which does not assume equal variances) appears robust to sample size and variance inequalities, returning 5% false-positives under all conditions. 
+
+### Normality
+
+Here, for each iteration, I drew two virtual groups of participants under two conditions:
+
+1. Both drawn from standard normal distributions with $\mu$ = 0 and $\sigma$ = 1 
+2. Both drawn from positively skewed distributions with $\mu$ = 0 and $\sigma$ = 1, where skew in one distribution was ~.24 and ~.12 in the other.
+
+In each of these conditions, I once more iterated through sample sizes from $n$ group 1 = 30 - $n$ group 1 = 120, in steps of 10. As above, I ran 5,000 independent-samples t-tests for each of the conditions saved the proportion of significant test results, assuming the typical $\alpha$ = .05.
+
+```{r}
+
+n1<-seq(30,120,10)
+
+norm<-numeric(length(n1))
+pos_skew<-numeric(length(n1))
+########
+
+for(i in 1:length(n1)){
+  norm[i]<-mean(replicate(nit, simT(n1[i],n1[i],0,0,1,1))<=.05) # norm
+  pos_skew[i]<-mean(replicate(nit, simTskew(n1[i],n1[i],0,0,1,1))<=.05) # positive skew
+}
+
+
+norm.simdat<-tibble::tibble(
+  sizenone=rep(seq(30,120,10),2),
+  sim=rep(c("Normally distributed","Positively skewed"),each=length(n1)),
+  res=c(norm,pos_skew)
+  )
+
+
+saveRDS(norm.simdat, "./data/simdata_a2_norm_type1.rds")
+
+norm.simdat<-readRDS("./data/simdata_a2_norm_type1.rds")
+
+plot<-ggplot2::ggplot(data=norm.simdat,ggplot2::aes(x = sizenone, y = res,
                                           group = sim, color = sim)) +
   ggplot2::theme_bw() +
-  ggplot2::geom_point() +
+  ggplot2::geom_point(size = 2.5) +
   ggplot2::geom_line() +
-  ggplot2::facet_wrap(facets = ggplot2::vars(test)) +
-  ggplot2::labs(y = expression(paste("Type-I error rate (", alpha, ")")), x = "n of larger sample") +
-  ggplot2::scale_y_continuous(limits = c(.045,.15),
-                              breaks = seq(.05, .15, .01))+
-  ggplot2::scale_x_continuous(limits = c(30,120),
-                              breaks = seq(30, 120, 10))+
+  ggplot2::labs(y = expression(paste("Type-I error rate (", alpha, ")")), x = "n") +
+  ggplot2::scale_y_continuous(limits = c(.04,.1),
+                              breaks = seq(.04, .1, .01))+
+  ggplot2::scale_x_continuous(limits = c(10,120),
+                              breaks = seq(10, 120, 10))+
   ggplot2::geom_hline(yintercept = .05, linetype = "dashed",color = "red") +
   ggplot2::theme(legend.title=ggplot2::element_blank(),
-                 legend.position=c(.885,.82), 
+                 legend.position="top",
                  legend.background = ggplot2::element_blank(),
                  legend.box.background = ggplot2::element_rect(colour = "black")) +
   ggplot2::scale_color_brewer(palette = "Dark2")
 
-ggplot2::ggsave("./images/simdata_uneqvar.png",plot)  
-
+ggplot2::ggsave("./images/simdata_norm_type1.png",plot)
 ```
+![](./images/simdata_norm_type1.png)
+Compared to the data drawn from normal distributions, we see inflated type-I error rates when the group distributions are skewed to differing degrees.
 
+## Conclusion
 
-## Normality
-
-Coming soon...
-
-## Homogeneity of variances
-
-### Type-I error rate ($\alpha$)
-
-![](./images/simdata_uneqvar.png)
-
-```{r}
-#| fig-height: 10
-
-
-
-# 
-# simTRep <- replicate(1000, simT(50,50,0,0,1,1)) # equal var
-# simTRep_uneq <- replicate(1000, simT(50,50,0,0,1,1.5)) # unequal var
-# simTRep_uneqsamp <- replicate(1000, simT(50,40,0,0,1,1.5)) # unequal var and sample size
-
-
-# par(mfrow = c(3,1))
-# hist(simTRep, breaks = 21, col = c('red',rep('grey',20)), 
-#      main = "Equal variances, equal n (50)", xlab = "p-value")
-# hist(simTRep_uneq, breaks = 21, col = c('red',rep('grey',20)), 
-#      main = "Unequal variances, equal n (50)", xlab = "p-value")
-# hist(simTRep_uneqsamp, breaks = 21, col = c('red',rep('grey',20)), 
-#      main = "Unequal variances, unequal n (50, 40)", xlab = "p-value")
-
-# False positive rate for:
-# 
-# 1. Equal variances and equal _n_ = `{r} mean(simTRep <= .05)`
-# 2. Unequal variances and equal _n_ = `{r} mean(simTRep_uneq <= .05)`
-# 3. Unequal variances and unequal _n_ = `{r} mean(simTRep_uneqsamp <= .05)`
-
-
-```
-
-
-
-### Power (1 - $\beta$)
+While a limited demonstration, hopefully this illustrates the problems that can arise from assumption violations of testing assumptions!
