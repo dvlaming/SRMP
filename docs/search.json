@@ -82,81 +82,81 @@
   {
     "objectID": "t2.html",
     "href": "t2.html",
-    "title": "1  Bias and checking assumptions",
+    "title": "3  Bias and checking assumptions",
     "section": "",
-    "text": "1.1 Learning outcomes\nAfter viewing the tutorial materials and following along with the demonstration, you can:",
+    "text": "3.1 Learning outcomes\nAfter viewing the tutorial materials and following along with the demonstration, you can:",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Bias and checking assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Bias and checking assumptions</span>"
     ]
   },
   {
     "objectID": "t2.html#sec-t2ILO",
     "href": "t2.html#sec-t2ILO",
-    "title": "1  Bias and checking assumptions",
+    "title": "3  Bias and checking assumptions",
     "section": "",
     "text": "Screen for outliers using the boxplot rule\nCheck the assumptions of normality and homogeneity of variances, using plots and tests",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Bias and checking assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Bias and checking assumptions</span>"
     ]
   },
   {
     "objectID": "t2.html#sec-t2data",
     "href": "t2.html#sec-t2data",
-    "title": "1  Bias and checking assumptions",
-    "section": "1.2 Datasets",
-    "text": "1.2 Datasets\nThis demonstration uses the dataset ReducedESS11 which you can download here. You can see a summary of the variables in the previous tutorial.",
+    "title": "3  Bias and checking assumptions",
+    "section": "3.2 Datasets",
+    "text": "3.2 Datasets\nThis demonstration uses the dataset ReducedESS11 which you can download here. You can see a summary of the variables in the previous tutorial.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Bias and checking assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Bias and checking assumptions</span>"
     ]
   },
   {
     "objectID": "t2.html#sec-t2vid",
     "href": "t2.html#sec-t2vid",
-    "title": "1  Bias and checking assumptions",
-    "section": "1.3 Videos",
-    "text": "1.3 Videos",
+    "title": "3  Bias and checking assumptions",
+    "section": "3.3 Videos",
+    "text": "3.3 Videos",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Bias and checking assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Bias and checking assumptions</span>"
     ]
   },
   {
     "objectID": "t3.html",
     "href": "t3.html",
-    "title": "3  t-tests, one-way ANOVA and \\(\\chi^2\\) tests of independence",
+    "title": "2  t-tests, one-way ANOVA and \\(\\chi^2\\) tests of independence",
     "section": "",
-    "text": "3.1 Learning outcomes\nAfter viewing the tutorial materials and following along with the demonstration, you can:",
+    "text": "2.1 Learning outcomes\nAfter viewing the tutorial materials and following along with the demonstration, you can:",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-tests, one-way ANOVA and $\\chi^2$ tests of independence</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>t-tests, one-way ANOVA and $\\chi^2$ tests of independence</span>"
     ]
   },
   {
     "objectID": "t3.html#sec-t3ILO",
     "href": "t3.html#sec-t3ILO",
-    "title": "3  t-tests, one-way ANOVA and \\(\\chi^2\\) tests of independence",
+    "title": "2  t-tests, one-way ANOVA and \\(\\chi^2\\) tests of independence",
     "section": "",
     "text": "Set-up, run and interpret t-tests, one-way ANOVAs and the \\(\\chi^2\\) tests of independence\nCheck the assumptions of these tests",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-tests, one-way ANOVA and $\\chi^2$ tests of independence</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>t-tests, one-way ANOVA and $\\chi^2$ tests of independence</span>"
     ]
   },
   {
     "objectID": "t3.html#sec-t3data",
     "href": "t3.html#sec-t3data",
-    "title": "3  t-tests, one-way ANOVA and \\(\\chi^2\\) tests of independence",
-    "section": "3.2 Datasets",
-    "text": "3.2 Datasets\nThis demonstration uses the dataset ReducedESS11 which you can download here. You can see a summary of the variables in a previous tutorial.",
+    "title": "2  t-tests, one-way ANOVA and \\(\\chi^2\\) tests of independence",
+    "section": "2.2 Datasets",
+    "text": "2.2 Datasets\nThis demonstration uses the dataset ReducedESS11 which you can download here. You can see a summary of the variables in a previous tutorial.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-tests, one-way ANOVA and $\\chi^2$ tests of independence</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>t-tests, one-way ANOVA and $\\chi^2$ tests of independence</span>"
     ]
   },
   {
     "objectID": "t3.html#sec-t3vid",
     "href": "t3.html#sec-t3vid",
-    "title": "3  t-tests, one-way ANOVA and \\(\\chi^2\\) tests of independence",
-    "section": "3.3 Videos",
-    "text": "3.3 Videos",
+    "title": "2  t-tests, one-way ANOVA and \\(\\chi^2\\) tests of independence",
+    "section": "2.3 Videos",
+    "text": "2.3 Videos",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>t-tests, one-way ANOVA and $\\chi^2$ tests of independence</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>t-tests, one-way ANOVA and $\\chi^2$ tests of independence</span>"
     ]
   },
   {
@@ -182,11 +182,11 @@
   {
     "objectID": "t2.html#sec-t2plots",
     "href": "t2.html#sec-t2plots",
-    "title": "1  Bias and checking assumptions",
-    "section": "1.4 Guide to diagnostic plots",
-    "text": "1.4 Guide to diagnostic plots\n\n1.4.1 Boxplot\n\n\n\n\n\n\n\nNote 1.1: How to interpret a boxplot\n\n\n\n\nBlue box spans the middle 50% of the data\nQ1 (25th percentile) distinguishes lower 25% of the sorted values\nMedian (Q2/50th percentile) splits the sorted dataset in half\nQ3 (75th percentile) distinguishes the upper 25% of the sorted values\nPotential outliers are identified by the ‘boxplot rule’ whereby a value is flagged if it is smaller/larger than the value of Q1/Q3 minus/plus 1.5 times the interquartile range\nThe vertical lines at the end of the whiskers show the minimum and maximum values in the absence of outliers\n\nIf there are no visible whiskers and no outliers, then the minimum and maximum are respectively equal to Q1 and Q3\n\n\n\n\n\n\n1.4.2 QQ and density/distribution plots\nIn the figure below you can see the impact of different types of deviation from normality on how data appear in QQ and density plots. Note the correspondence between the sample quantiles and the theoretical quantiles in the case of the (near) normal distribution, and how this correspondence varies in the skewed or non-mesokurtic distributions underneath.",
+    "title": "3  Bias and checking assumptions",
+    "section": "3.4 Guide to diagnostic plots",
+    "text": "3.4 Guide to diagnostic plots\n\n3.4.1 Boxplot\n\n\n\n\n\n\n\nNote 3.1: How to interpret a boxplot\n\n\n\n\nBlue box spans the middle 50% of the data\nQ1 (25th percentile) distinguishes lower 25% of the sorted values\nMedian (Q2/50th percentile) splits the sorted dataset in half\nQ3 (75th percentile) distinguishes the upper 25% of the sorted values\nPotential outliers are identified by the ‘boxplot rule’ whereby a value is flagged if it is smaller/larger than the value of Q1/Q3 minus/plus 1.5 times the interquartile range\nThe vertical lines at the end of the whiskers show the minimum and maximum values in the absence of outliers\n\nIf there are no visible whiskers and no outliers, then the minimum and maximum are respectively equal to Q1 and Q3\n\n\n\n\n\n\n3.4.2 QQ and density/distribution plots\nIn the figure below you can see the impact of different types of deviation from normality on how data appear in QQ and density plots. Note the correspondence between the sample quantiles and the theoretical quantiles in the case of the (near) normal distribution, and how this correspondence varies in the skewed or non-mesokurtic distributions underneath.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Bias and checking assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Bias and checking assumptions</span>"
     ]
   },
   {
