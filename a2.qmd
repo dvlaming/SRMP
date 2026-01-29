@@ -112,8 +112,8 @@ In each of these four conditions, I iterated through sample sizes from $n$ group
 
 ![](./images/simdata_var_type1.png){width=75% fig-align='center'}  
   
-  We can see that the conventional independent-samples t-tests fare well when sample sizes are equal, but we see type-I error rates in excess of .05 when both variances and sample sizes are unequal across groups, particularly in smaller samples. In contrast, the Welch test (which does not assume equal variances) appears robust to sample size and variance inequalities, returning 5% false-positives under all conditions. 
+  We can see that the conventional independent-samples t-tests fare well when sample sizes are equal, but we see type-I error rates in excess of .05 when both variances and sample sizes are unequal across groups, particularly in smaller samples. In contrast, the Welch test (which does not assume equal variances) appears robust to sample size and variance inequalities, returning ~5% false-positives under all conditions. 
 
 ## Conclusion
 
-Hopefully this limited demonstration illustrates some of the problems that can arise from violations of testing assumptions. In situations where homogeneity of variances cannot be confirmed, it would be wise to use alternatives like the Welch adjustments for independent-samples t-tests and one-way ANOVA.
+Hopefully this limited demonstration illustrates some of the problems that can arise from violations of testing assumptions. In situations where homogeneity of variances cannot be confirmed, it would be wise to use adjustments or alternatives to standard tests, such as the Welch statistics for independent-samples t-tests and one-way ANOVA.

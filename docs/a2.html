@@ -175,14 +175,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./t2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Bias and checking assumptions</span></span></a>
+  <a href="./t3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">t-tests, one-way ANOVA and <span class="math inline">\(\chi^2\)</span> tests of independence</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./t3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">t-tests, one-way ANOVA and <span class="math inline">\(\chi^2\)</span> tests of independence</span></span></a>
+  <a href="./t2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Bias and checking assumptions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -304,11 +304,11 @@ window.Quarto = {
 <p><img src="./images/simdata_var_type1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
 </figure>
 </div>
-<p>We can see that the conventional independent-samples t-tests fare well when sample sizes are equal, but we see type-I error rates in excess of .05 when both variances and sample sizes are unequal across groups, particularly in smaller samples. In contrast, the Welch test (which does not assume equal variances) appears robust to sample size and variance inequalities, returning 5% false-positives under all conditions.</p>
+<p>We can see that the conventional independent-samples t-tests fare well when sample sizes are equal, but we see type-I error rates in excess of .05 when both variances and sample sizes are unequal across groups, particularly in smaller samples. In contrast, the Welch test (which does not assume equal variances) appears robust to sample size and variance inequalities, returning ~5% false-positives under all conditions.</p>
 </section>
 <section id="conclusion" class="level2" data-number="B.2">
 <h2 data-number="B.2" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">B.2</span> Conclusion</h2>
-<p>Hopefully this limited demonstration illustrates some of the problems that can arise from violations of testing assumptions. In situations where homogeneity of variances cannot be confirmed, it would be wise to use alternatives like the Welch adjustments for independent-samples t-tests and one-way ANOVA.</p>
+<p>Hopefully this limited demonstration illustrates some of the problems that can arise from violations of testing assumptions. In situations where homogeneity of variances cannot be confirmed, it would be wise to use adjustments or alternatives to standard tests, such as the Welch statistics for independent-samples t-tests and one-way ANOVA.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
