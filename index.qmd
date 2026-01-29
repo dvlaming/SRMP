@@ -10,15 +10,15 @@ For questions, please [get in touch](mailto:d.fleming@uva.nl)!
 
 The in-class group assignments (and data) for tutorials 2 - 8 can be accessed with the links below. **Please prepare a single document (.doc or .pdf) containing your answers and ensure that you upload on time via the submission points on canvas!**
 
-1. Assignment 1: [data](./assignments/Assignment1_data.jasp)
-2. Assignment 2: [data](./assignments/Assignment2_data.jasp)
-3. Assignment 3: 
+1. Assignment 1: [assignment](./assignments/SRMP_Assignment1.html), [data](./assignments/Assignment1_data.jasp), [answers](./assignments/SRMP_Assignment1_Answers.html)
+2. Assignment 2: [assignment](./assignments/SRMP_Assignment2.html), [data](./assignments/Assignment2_data.jasp), [answers](./assignments/SRMP_Assignment2_Answers.html)
+3. Assignment 3: [assignment](./assignments/SRMP_Assignment3.html), [answers](./assignments/SRMP_Assignment3_Answers.html)
     + [part 1 data](./assignments/Assignment3_data_part1.jasp)
     + [part 2 data](./assignments/Assignment3_data_part2.jasp)
-4. Assignment 4: [data](./assignments/Assignment4_data.jasp)
-5. Assignment 5: [data](./assignments/Assignment5_data.jasp)
-6. Assignment 6: [data](./assignments/Assignment6_data.jasp)
-7. Assignment 7: 
+4. Assignment 4: [assignment](./assignments/SRMP_Assignment4.html), [data](./assignments/Assignment4_data.jasp), [answers](./assignments/SRMP_Assignment4_Answers.html)
+5. Assignment 5: [assignment](./assignments/SRMP_Assignment5.html), [data](./assignments/Assignment5_data.jasp), [answers](./assignments/SRMP_Assignment5_Answers.html)
+6. Assignment 6: [assignment](./assignments/SRMP_Assignment6.html), [data](./assignments/Assignment6_data.jasp), [answers](./assignments/SRMP_Assignment6_Answers.html)
+7. Assignment 7: [assignment](./assignments/SRMP_Assignment7.html), [answers](./assignments/SRMP_Assignment7_Answers.html)
     + [part 1 data](./assignments/Assignment7_data_part1.jasp)
     + [part 2 data](./assignments/Assignment7_data_part2.jasp)
 
