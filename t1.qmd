@@ -13,7 +13,7 @@ After viewing the tutorial materials and following along with the demonstration,
 
 ## Slides
 
-{{< revealjs file="presentation_tutorial1.html" height="500px" width="50%" class="ratio ratio-16x9" >}}
+{{< revealjs file="assets/presentation_tutorial1.html" height="500px" width="50%" class="ratio ratio-16x9" >}}
 
 ## Datasets {#sec-t1data}
 
