@@ -11,6 +11,10 @@ After viewing the tutorial materials and following along with the demonstration,
 4. Run descriptive statistics and frequencies
 5. Visualize data 
 
+## Slides
+
+{{< revealjs file="presentation_tutorial1.html" height="500px" width="50%" class="ratio ratio-16x9" >}}
+
 ## Datasets {#sec-t1data}
 
 This demonstration uses the dataset **ReducedESS11** which is based on the ESS11 dataset [@ess11]. You can download it [here](data/ReducedESS11.jasp).

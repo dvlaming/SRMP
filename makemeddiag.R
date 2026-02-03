@@ -14,15 +14,15 @@ plot<-ggplot() +
                arrow = arrow(length = unit(.5,"cm"))) +
   geom_segment(aes(x = 3, y = 2, xend = 7, yend = 2), linewidth = 1.5,
                arrow = arrow(length = unit(.5,"cm"))) +
-  geom_text(aes(x = 2, y = 2 , label = "Condition\n (Rebel = 1)"), 
+  geom_text(aes(x = 2, y = 2 , label = "IV"), 
             colour = "black", fontface = "bold") +
-  geom_text(aes(x = 8, y = 2 , label = "Attractiveness"), colour = "black",
+  geom_text(aes(x = 8, y = 2 , label = "DV"), colour = "black",
             fontface = "bold") +
-  geom_text(aes(x = 5, y = 6 , label = "Imagined Liking"), colour = "black",
+  geom_text(aes(x = 5, y = 6 , label = "Mediator"), colour = "black",
             fontface = "bold") +
-  geom_text(aes(x = 5, y = 2.25 , label = "0.47 (ns)")) +
-  geom_text(aes(x = 3.25, y = 4 , label = "-1.74*"), angle = atan2(2,1) * (180 / pi)) +
-  geom_text(aes(x = 6.75, y = 4 , label = "0.66*"), angle = 360 - atan2(2,1) * (180 / pi)) +
-  geom_text(aes(x = 5, y = 1 , label = "Indirect effect: -1.14* [-2.11, -0.46]"))
+  geom_text(aes(x = 5, y = 2.25 , label = "..")) +
+  geom_text(aes(x = 3.25, y = 4 , label = ".."), angle = atan2(2,1) * (180 / pi)) +
+  geom_text(aes(x = 6.75, y = 4 , label = ".."), angle = 360 - atan2(2,1) * (180 / pi)) +
+  geom_text(aes(x = 5, y = 1 , label = "Indirect effect: .. [.., ..]"))
                  
   
