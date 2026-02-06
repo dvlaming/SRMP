@@ -65,7 +65,7 @@ format:
     -   Chapter link also available on Canvas
 :::
 
-::: notes
+::: {.notes}
 Move to demo now with JASP using reduced ESS11 dataset.
 
 We cover: 
@@ -73,7 +73,8 @@ We cover:
 - Filtering (selecting cases) + Manual filter and R code  
 - Computing new variables   
     + compute average of the three 11 point immigration variables using R - Creating new recoded/relabelled variables     
-    + ifelse in r - use one of the 4-point immigration variables to create 'anti' and 'pro' groups + ifelse(imsmetn\<=2, "pro", "anti")     
+    + ifelse in r - use one of the 4-point immigration variables to create 'anti' and 'pro' groups 
+    + ifelse(imsmetn\<=2, "pro", "anti")     
 - Generating descriptives and frequencies   
 - Boxplots   
 - Scatterplots    
