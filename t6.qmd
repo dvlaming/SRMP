@@ -7,7 +7,6 @@ After viewing the tutorial materials and following along with the demonstration,
 
 1. Set up, run and interpret (partial) correlations
 2. Set up, run and interpret simple (bivariate) linear regression
-3. Perform reliability analysis
 
 ## Datasets {#sec-t6data}
 
@@ -20,5 +19,3 @@ This demonstration uses the dataset [**album_sales**](data/album_sales.jasp) whi
 ### Correlations and simple regression
 
 <iframe src="https://amsuni-my.sharepoint.com/personal/d_fleming_uva_nl/_layouts/15/embed.aspx?UniqueId=c7d098ff-eb93-415a-9c81-2c66e7ff16f4&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="SRMP6_corr_partial_regression.mp4"></iframe>
-
-### Reliability analysis
