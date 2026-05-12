@@ -1,0 +1,21 @@
+---
+title: "SRMP: assignment 3"
+format: html
+---
+
+## Part 1/2 (JASP)
+
+Open the dataset **Assignment3_data_part1**. Dr. Kater had previously observed that students following certain majors tended to often use pretentious language during discussions about current events with classmates in cafes, especially after a few drinks. He and his team decided to run a study where they invited Fine Art and Politics students (`Major`) to the lab and randomly assigned them to receive either 2 glasses of a very low alcohol IPA beer, a 'standard' IPA of 5% alcoholic volume, or a strong double IPA of 10% volume (`Drink`). After consuming their drinks, each student was taken to a room where they were told they would join a discussion on current affairs with 3 students from another university who followed the same major as they did - in reality, these were confederates working for Dr. Kater. These confederates each scored the participating students for frequency of pretentious language use (0 = 'Plain speaker'; 100 = 'William F. Buckley') and the scores of the three confederates were averaged to form the DV `LanguageScore`, which Dr. Kater and his team were keen to compare across conditions.  
+
+1. Following your own intuition, propose clear and sensible hypotheses for the design above (only$\ H_1$, no need to mention$\ H_0$). (**3 points**) 
+2. State the most appropriate test to run on these data. Perform the relevant screening and comment on whether the assumptions of the test are met. (**4 points**)
+3. Prepare a graph which visualizes the descriptive results and include this in your assignment document. (**2 points**)
+4. Regardless of the outcomes of your screening, perform the inferential test you proposed in Q2. What conclusions can you draw with regard to the hypotheses you presented in Q1? Support these conclusions by discussing relevant graphical, (descriptive) numerical information and test output (no need to use APA format, just highlight those parts of the output which were crucial to your decision-making). (**8 points**) 
+
+## Part 2/2 (JASP)
+
+Open the dataset **Assignment3_data_part2**. Prof. Vogel has noticed that birds from the corvid family enjoy eating sausage rolls which have been discarded on train station platforms. In her bird lab, she designs a study to test her hypothesis that corvids (regardless of sub-species) will prefer sausage rolls from a producer with a stronger reputation (Albert Heijn) as compared to those from a less reputable producer (Kiosk). The sampled birds were assigned to receive a sausage roll from only one of the two brands and their preferences were studied by measuring how often they pecked at the sausage roll they were offered (`Pecks`). The age of each bird (`Age`) was also recorded in the dataset, as Vogel reasons that older birds might peck less at pastries regardless of the producer, and she wishes to control for this.
+
+5. State the most appropriate test for taking **all** of Prof. Vogel’s expectations and concerns into account and report **only on whether the assumptions unique to this test** are satisfied.  (**3 points**)
+6. Run the test (regardless of the outcome of the assumption checks) and - referring to relevant descriptive and inferential output - comment on what the results say about Prof. Vogel’s main hypothesis. (**3 points**)
+7. What do the results have to say about her expectations regarding age of the bird? (**2 point**)

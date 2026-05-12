@@ -1,0 +1,25 @@
+---
+title: "SRMP: assignment 4"
+format: html
+bibliography: SRMP_Week4Assignment.bib
+csl: apa-annotated-bibliography.csl
+---
+
+## Part 1/2 (JASP)
+
+Open the dataset **Assignment4_data**. These are data from a real study on morbid curiosity [@Oosterwijk2017] where participants were asked to make choices regarding the viewing of negative, positive or neutral images. In each trial, participants were presented with two short verbal descriptions of images (a negative image and a neutral or positive alternative) and asked which image they wanted to view. After they made a choice, the chosen image was presented on the computer screen. The verbal descriptions aimed to mimic a common way in which people are confronted with information that may trigger morbid curiosity in daily life, such as headlines in a newspaper or image links on the internet (e.g., Facebook, YouTube).  
+
+The independent variable `Category` (_social_ vs. _physical_) reflected whether the negative target and the alternative had _social_ content (e.g., it involved people interacting) or _physical_ content (e.g., it involved a close-up of a human body part). The independent variable `Combination` (_neutral_ vs. _positive_) reflected whether the alternative was _neutral_ or _positive_. The participants made 56 choices in total, and the DV is expressed in the datafile as the proportion of trials on which a negative image was chosen. **Note that each participant completed trials in all of the study's conditions.** 
+
+1. Visualize the data using a graph appropriate for the design and paste this into your submission. (**3 points**)
+2. State the most appropriate test to run on these data. Run this test, and interpret **all** relevant output, with reference to supporting descriptive statistics. (**7 points**)
+3. Do you have concerns about the assumption of sphericity in these data? Give your reasoning for why (not). (**2 points**)
+
+
+## Part 2/2 (Conceptual)
+
+We return to the work of Prof. Vogel from the previous assignment. Recall that she was interested in whether birds favoured sausage rolls from a particular producer (Albert Heijn vs. Kiosk) and she how also believed that older birds might peck less at pastries regardless of the producer. In a follow-up experiment, Vogel conducts an analysis where she first tests whether there is an effect of producer without controlling for age and obtains a non-significant result (_p_ = .07). She then reruns the analysis controlling for age and finds a significant effect (_p_ = .04). She reports only the latter finding.
+
+4. Why would this be considered questionable research practice? (**1 point**)
+5. Suggest two actions Vogel could have taken to avoid this. (**2 points**)
+

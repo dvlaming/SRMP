@@ -1,0 +1,149 @@
+---
+title: "SRMP: answers for assignment 1"
+format: html
+execute: 
+  echo: false
+  warning: false
+  message: false
+---
+
+
+```{r DataAndPackageImport}
+
+# set seed for reproducibility
+set.seed(123)
+
+# packages
+library(car)
+library(dplyr)
+library(ggplot2)
+library(ggrain)
+library(haven)
+library(janitor) # for 'tabyl'
+library(jaspGraphs)
+library(tibble)
+library(tidyr)
+library(truncnorm) # truncated normal
+`%>%`<-magrittr::`%>%`
+
+# data
+
+Music<-c(rep("Beatles",each=52),rep("Stones",each=48),rep("U2",each=60)) #listening condition
+Headache<-c(rbinom(52,1,.45),rbinom(48,1,.54),rbinom(60,1,.85)) #Y/N - headache afterwards?
+Headache[Headache==1]="Y"
+Headache[Headache==0]="N"
+Queasy<-c(rtruncnorm(52,0,100,23,7),rtruncnorm(48,0,100,27,18),
+                 rtruncnorm(60,0,100,89,10)) 
+MusicExperiment<-tibble::tibble(Music,Headache,Queasy)
+
+haven::write_sav(MusicExperiment,"Week2assignmentData.sav")
+
+# crosstab with "tabyl"
+
+# MusicXTab<-MusicExperiment  %>% 
+#     janitor::tabyl(Headache, Music)  #%>% 
+
+MusicXTab<-MusicExperiment  %>% 
+    janitor::tabyl(Headache, Music)  %>% 
+    janitor::adorn_percentages("col")  %>% 
+    janitor::adorn_pct_formatting(digits=2)  %>% 
+    janitor::adorn_ns()
+MusicXTab<-knitr::kable(x=MusicXTab, align = "ccc")
+
+
+# chi-square
+MusicChi<-MusicExperiment %>%
+  janitor::tabyl(Headache, Music) %>% 
+  janitor::chisq.test()
+
+# make it rain
+
+PunchBox<-ggplot2::ggplot(MusicExperiment, aes(x=Music,y=Queasy, fill=Music, color = Music))+
+  ggrain::geom_rain(alpha = .5, boxplot.args = rlang::list2(staplewidth = 1, alpha = .5, 
+                                                    aes(color = Music), 
+                                                    outlier.shape = NA,
+                                                    box.linewidth = 1,
+                                                    whisker.linewidth = 1,
+                                                    staple.linewidth = 1),
+                    boxplot.args.pos = rlang::list2(width = 0.1, 
+                                                    position = position_nudge(x = 0)),
+                    point.args = rlang::list2(alpha = 0.5, size = 2.5, aes(color = Music)),
+                    point.args.pos = rlang::list2(position = 
+                                                    ggpp::position_jitternudge(
+                                                      x = -0.19, width = .065, seed = 123, 
+                                                      nudge.from = "jittered.x"))) +
+  ggplot2::scale_y_continuous(limits = c(0,100), breaks = seq(0,100,10)) +
+  ggplot2::theme_classic() +
+  ggplot2::theme(legend.position = "none") +
+  jaspGraphs::scale_JASPfill_discrete() +
+  jaspGraphs::scale_JASPcolor_discrete()
+    
+  
+#levene 
+leveneHom<-leveneTest(MusicExperiment$Queasy,MusicExperiment$Music,center=mean)
+
+# do descriptives
+summaryMusic<-MusicExperiment  %>% 
+    dplyr::group_by(Music)  %>% 
+    dplyr::summarise(N=n(),Meanqueasy=mean(Queasy),SEqueasy=sd(Queasy)/sqrt(N))
+
+FancyTab<-knitr::kable(summaryMusic,align='cccc')
+
+#ANOVA
+OneWayANOVA<-car::Anova(aov(Queasy~Music,data=MusicExperiment),type="III")
+# Post-hoc
+postHoc<-pairwise.t.test(MusicExperiment$Queasy, MusicExperiment$Music, p.adjust.method = "bonferroni")
+
+# notes on computation of bonf t
+# https://stats.libretexts.org/Bookshelves/Introductory_Statistics/Mostly_Harmless_Statistics_(Webb)/11%3A_Analysis_of_Variance/11.02%3A_Pairwise_Comparisons_of_Means_(Post-Hoc_Tests)
+
+# code:
+
+# pt(q =(mean(subset(MusicExperiment$Queasy,MusicExperiment$Music=="Stones")) - mean(subset(MusicExperiment$Queasy,MusicExperiment$Music=="Beatles")))/sqrt(OneWayANOVA$`Sum Sq`[3]/157*((1/48)+(1/52))), df = 157, lower.tail = FALSE)*6
+
+```
+
+## Part 1/2 (JASP)
+
+
+Open **Assignment1_data**. These are (simulated) data from an experiment measuring emotional and nociceptive responses to different types of music. Participants were randomly assigned to one of three conditions (`Music`): listening to 15 minutes of a selection of music from either the Beatles, the Rolling Stones, or U2. After the listening period, participants were asked if they had a headache (`Headache`; Yes/No) and they were also asked to rate how nauseuous they felt on a scale of 0-100 (`Queasy`). The researchers expected that `Music` (IV) would have an effect on these two DVs. <b> *Take a good look at the data file before you begin answering the questions!* </b>
+
+1. Use an appropriate **descriptive/graphical** technique to visualize the impact of `Music` condition on `Headache` (include this in your report) and interpret the output. (**3 points**)
+    + <span style="color: red;">A crosstab (1) with appropriate percentages (1) (i.e., showing distribution of Yes/No responses within IV conditions) should be generated (although points may be awarded for sensible alternatives). A comparison of percentages suggests that participants who listened to U2 reported headaches more frequently than those who listened to the Stones or the Beatles (lowest frequency). (1)</span>
+
+
+```{r xTab}
+MusicXTab
+```
+
+    
+2. Use a suitable **inferential** technique to test the hypothesis. Report the relevant output and offer your conclusions. (**3 points**)
+    + <span style="color: red;">A chi-square test (1) shows that there is a statistically significant effect of `Music` on `Headache`- $\chi^2$ (2, *N* = 160) = 21.28, *p* < .001 (1) - such that those who listened to U2 more frequently experienced headaches (1).</span>
+3. Now, consider the `Queasy` data. Visualize these and give a preliminary interpretation. (**3 points**)
+    + <span style="color: red;">(1 for nice graph.) Listening to U2 seems to result in the strongest sensation of nausea, followed by listening to the Stones, and then the Beatles (1).The difference between the Beatles and Stones groups is quite small (1).</span>
+
+
+```{r Box, fig.align="center", fig.width=5, fig.height=5}
+PunchBox
+```
+
+4. Run an appropriate **inferential** technique, report all relevant output, and offer your conclusions. (**4 points**)
+    + <span style="color: red;">A one-way ANOVA (1) revealed a significant effect of `Music` on `Queasy`: *F* (2, 157) = 537.67, *p* < .001 (1). Post-hoc tests showed that the Beatles and Stones groups did not significantly differ from each other, whereas the U2 group recorded significantly higher `Queasy` scores than both of the other groups (1). We might conclude that listening to 15 minutes of U2 makes one feel more unwell than listening to 15 minutes of either the Beatles or the Rolling Stones (1).</span>
+  
+
+## Part 2/2 (conceptual)
+
+
+Dr. Metheny is interested in whether regularly listening to smooth jazz music can reduce exam stress. A week before an exam, he randomly assigns student participants 
+to a nightly listening programme of smooth jazz, or a control condition where they simply follow their established study habits. The dependent variable is the **difference between pre-study exam stress and exam stress reported on the morning of the exam**, with stress originally measured on a 0 – 100 scale (pre- minus post-, meaning 
+positive difference scores = stress reduction relative to baseline). Metheny finds a significant reduction (p <.05) and reports that listening to smooth jazz music can reduce study 
+stress.
+
+5. What is the most obvious problem you can find in Metheny's conclusion? (**2 points**)
+    + <span style="color: red;">'Established study habits' (or, 'nothing at all') is a very weak control condition and does not allow for isolation of
+        the **specific** benefit of smooth jazz. (I.e., the same reduction could have been found in students who added some other kind of regular music/sound listening
+        programme to their study routine.)</span>
+6. How would you address this problem in a replication study? (**2 points**)
+    + <span style="color: red;">If Metheny is interested in the specific benefit of smooth jazz, he could include some musical control conditions (e.g, smooth jazz 
+        vs. free jazz/gentle classical) next to the 'study as usual' (passive) control condition.</span>
+  

@@ -1,0 +1,23 @@
+---
+title: "SRMP: assignment 7"
+format: html
+bibliography: SRMP_Week5Exercise.bib
+csl: apa-annotated-bibliography.csl
+---
+
+## Part 1/2 (JASP)
+
+The datafile **Assignment7_data_part1** contains a reduced version of the data from wave 10 of the ESS prepared by Prof. Vriends, a researcher who hypothesizes that the number of associates/friends a person has with whom they can discuss intimate and personal matters (`inprdsc`) can positively predict their overall satisfaction with life (`stflife`). She also predicts that this effect will be more pronounced among older individuals.
+
+1. State the most appropriate analysis for testing Prof. Vriends' hypotheses. Run this analysis, and include a **neat** table containing the relevant numerical outputs. (**3 points**)
+2. Interpret **all** findings and comment on their implications for Prof. Vriends' hypotheses. (**9 points**)
+3. On the basis of Vriends' findings, what life satisfaction score would you predict for someone aged 38 with 2 contacts with whom they can discuss intimate matters? **Show the working for how you arrived at your answer**. (**3 points**)
+
+## Part 2/2 (JASP)
+
+The file **Assignment7_data_part2** contains data taken from a study [@monin2008rejection] conducted to test the hypothesis that participants would like (`Attra`) rebels less than obedient people (`Cond`) _and that this difference could be explained by participants imagining that they themselves would be less well-liked (`ImLike`) by rebels than they would be by obedient people_. Participants read the description of a person who either acted as a rebel or as an obedient person and judged how much they thought the described person would like them, and then how much they themselves liked the person described. 
+
+4. Run an appropriate analysis and interpret **all** relevant output with respect to the researchers' hypotheses. (**8 points**)
+5. Prepare a diagram to visualize the relationships captured by your model and include this in your assignment document. (**3 points**)
+
+## References

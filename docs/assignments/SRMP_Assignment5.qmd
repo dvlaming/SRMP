@@ -1,0 +1,28 @@
+---
+title: "SRMP: assignment 5"
+format: html
+bibliography: SRMP_Week4Assignment.bib
+csl: apa-annotated-bibliography.csl
+execute: 
+    echo: false
+    message: false
+    warning: false
+---
+
+## Part 1/2 (JASP)
+
+Open the dataset **Assignment5_data**. These are based on real data [@Bernard2012], where the researchers examined whether presenting sexualized portrayals of women led to those women being objectified. The study was based on the inversion effect – people find it more difficult to accurately recognize pictures which have been inverted (as compared to images presented the correct way up), but this effect is more pronounced for pictures of humans than for pictures of objects. The researchers presented groups of women and men (`Gender`) with sexualized pictures of women and men; half of these pictures were presented upright, and the other half were inverted. On each trial, the participants were presented with one picture, and were subsequently asked to choose the picture they had just seen from a line-up of two images on a new screen. The main DV was the proportion of correctly-recognized pictures.
+
+Imagine that the researchers hypothesized that, if sexualized images of women are processed as objects, then an inversion effect (i.e., a reduction in recognition scores for inverted vs. upright pictures) should NOT be present for images of females, but it should be for images of males (assuming that images of males are not objectified to the same degree as images of females). Let us also imagine that there is no specific hypothesis for the effect of participant gender (`Gender`).
+
+1.  Formulate a hypothesis (only $\ H_1$) for the effect of participant gender `Gender`, **in light of the hypotheses already presented**. Give a <b><u>very brief</u></b> explanation for your expectation (i.e., no need for a detailed theoretical framework). (**3 points**)
+2.  Visualize the data using a graph appropriate for the design and paste this into your submission. (**3 points**)
+3.  State the most appropriate test to run on these data. <b><i>Ignoring assumption checks</i></b>, run this test and interpret **all** relevant output, with reference to relevant supporting descriptive statistics. (**11 points**)
+4.  Give a brief, plain conclusion with respect to the hypotheses (including the one you stated yourself in Q3). (**3 points**)
+
+## Part 2/2 (Conceptual)
+
+We return to Dr. Metheny's 'smooth jazz' experiments from a previous assignment. Metheny was interested in whether regularly listening to smooth jazz music can reduce exam stress, so, one week before an exam, he randomly assigned student participants either to a condition where they followed a nightly listening programme of smooth jazz, or a control condition where they listened to pop music (n = 25 in each group). The dependent variable was the **difference between exam stress measured one week before the exam and exam stress reported on the morning of the exam**, with stress originally measured on a 0 – 100 scale (pre- minus post-, meaning positive difference scores = stress reduction relative to baseline). Metheny found a mean difference score of 5.32 in the control condition, and a mean difference score of 7.14 in the smooth jazz condition. The pooled standard deviation for each group’s difference score was approximately 2.5.
+
+5.  Calculate an appropriate measure of effect size for the difference between ‘smooth jazz’ and ‘pop music’ and comment on the strength of the effect. (**2 points**)
+6.  How confident are you in this estimate of the strength of the effect? Explain your reasoning. (**2 points**)

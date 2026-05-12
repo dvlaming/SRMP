@@ -1,0 +1,270 @@
+---
+title: "SRMP: answers for assignment 5"
+format: html
+bibliography: SRMP_Week4Assignment.bib
+csl: apa-annotated-bibliography.csl
+execute: 
+    echo: false
+    message: false
+    warning: false
+---
+
+```{r DataAndPackageImport}
+
+# library(ez)
+library(ggplot2)
+library(ggrain)
+library(haven)
+library(jaspGraphs)
+library(dplyr)
+# library(tidyr)
+# library(magrittr)
+# library(MOTE)
+library(patchwork)
+
+#### Field part
+
+field.data<-haven::read_sav("Week4AssignmentData_Section2.sav")
+
+
+field.data.long<-field.data %>% 
+  tidyr::pivot_longer(cols=Inverted_Women:Upright_Men, 
+                      names_to = c("Display","Image_gender"),
+                      names_pattern = "(.*)_(.*)",
+                      values_to = "Accuracy") %>% 
+  dplyr::mutate(ID = factor(ID),,
+                Display = factor(Display), Gender = haven::as_factor(Gender), Image_gender = factor(Image_gender)) %>% 
+  dplyr::group_by(Gender, Display, Image_gender) %>% 
+  dplyr::mutate(zAccuracy = (Accuracy - mean(Accuracy))/sd(Accuracy))
+
+
+field.data.summary<-field.data.long %>% 
+  dplyr::group_by(Gender,Display,Image_gender) %>% 
+  dplyr::summarise(Accuracy = mean(Accuracy)) %>% 
+  dplyr::ungroup()
+
+
+## plots
+
+plot_3<-field.data.long %>% 
+  dplyr::filter(Gender=="Female") %>%
+  ggplot2::ggplot(ggplot2::aes(x = Display, y = Accuracy, 
+                               fill = Image_gender, color = Image_gender)) +
+  ggplot2::theme_classic() +
+  ggrain::geom_rain(alpha = .5, rain.side = "f2x2",
+                    boxplot.args = rlang::list2(staplewidth = 1, alpha = .5,
+                                                    outlier.shape = NA,
+                                                    box.linewidth = 1,
+                                                    whisker.linewidth = 1,
+                                                    staple.linewidth = 1, 
+                                                show.legend = FALSE),
+                     boxplot.args.pos = list(width = .1,
+                position = ggpp::position_dodgenudge(width = .15,x = rep(-.13,2))),
+                point.args = rlang::list2(alpha = 0.5, size = 2.5,
+                                          show.legend = FALSE)) + 
+  ggplot2::geom_point(data = subset(field.data.summary,Gender=="Female"),
+                      ggplot2::aes(x = c(1.1,1.1,1.9,1.9),group = Image_gender),
+                      size = 3, alpha = .8,
+                      show.legend = FALSE) +
+  ggplot2::geom_line(data = subset(field.data.summary,Gender=="Female"),
+                      ggplot2::aes(x = c(1.1,1.1,1.9,1.9),group = Image_gender),
+                     show.legend = FALSE,
+                     linewidth = 2, alpha = .5)+
+  jaspGraphs::geom_rangeframe() + # add lines on the x-axis and y-axis
+  jaspGraphs::scale_JASPfill_discrete(name = "Image gender") +
+  jaspGraphs::scale_JASPcolor_discrete(name = "Image gender") +
+  ggplot2::scale_y_continuous(limits = c(0,1), breaks = seq(0,1,.2))+
+  ggplot2::labs(y = "Accuracy\n(prop. correct)", x = "Image Orientation",
+                title = "Female participants")
+
+
+plot_4<-field.data.long %>% 
+  dplyr::filter(Gender=="Male") %>%
+  ggplot2::ggplot(ggplot2::aes(x = Display, y = Accuracy, 
+                               fill = Image_gender, color = Image_gender)) +
+  ggplot2::theme_classic() +
+  ggrain::geom_rain(alpha = .5, rain.side = "f2x2",
+                    boxplot.args = rlang::list2(staplewidth = 1, alpha = .5,
+                                                    outlier.shape = NA,
+                                                    box.linewidth = 1,
+                                                    whisker.linewidth = 1,
+                                                    staple.linewidth = 1, 
+                                                show.legend = FALSE),
+                     boxplot.args.pos = list(width = .1,
+                position = ggpp::position_dodgenudge(width = .15,x = rep(-.13,2))),
+                point.args = rlang::list2(alpha = 0.5, size = 2.5,
+                                          show.legend = FALSE)) + 
+  ggplot2::geom_point(data = subset(field.data.summary,Gender=="Male"),
+                      ggplot2::aes(x = c(1.1,1.1,1.9,1.9),group = Image_gender),
+                      size = 3, alpha = .8,
+                      show.legend = FALSE) +
+  ggplot2::geom_line(data = subset(field.data.summary,Gender=="Male"),
+                      ggplot2::aes(x = c(1.1,1.1,1.9,1.9),group = Image_gender),
+                     show.legend = FALSE,
+                     linewidth = 2, alpha = .5)+
+  jaspGraphs::geom_rangeframe() + # add lines on the x-axis and y-axis
+  jaspGraphs::scale_JASPfill_discrete(name = "Image gender") +
+  jaspGraphs::scale_JASPcolor_discrete(name = "Image gender") +
+  ggplot2::scale_y_continuous(limits = c(0,1), breaks = seq(0,1,.2))+
+  ggplot2::labs(y = "Accuracy\n(prop. correct)", x = "Image Orientation",
+                title = "Male participants")
+
+combiplot2<-plot_3+plot_4 + patchwork::plot_layout(axes = "collect",
+                                                   guides = 'collect')
+    
+# ## anova
+# 
+# model<-afex::aov_ez(id = "ID", dv = "Accuracy", data = field.data.long, 
+#                     within = c("Display", "Image_gender"),
+#                     between = "Gender", include_aov = TRUE, print.formula = TRUE)
+# 
+# 
+# 
+# model_ez<-ez::ezANOVA(data = field.data.long, wid = ID, dv = Accuracy,
+#                     within =  .("Display","Image_gender"),
+#                     between = Gender,type = 3, detailed = TRUE)
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# effsizes<-tibble::tibble(Gender = MOTE::omega.partial.SS.bn(
+#                     dfm = model_ez$ANOVA$DFn[2],
+#                     dfe = model_ez$ANOVA$DFd[2],
+#                     msm = model_ez$ANOVA$SSn[2] / model_ez$ANOVA$DFn[2],
+#                     mse = model_ez$ANOVA$SSd[2] / model_ez$ANOVA$DFd[2],
+#                     ssm = model_ez$ANOVA$SSn[2], n = 78,
+#                     a = .05)$omega, Display = MOTE::omega.partial.SS.rm(
+#                   dfm = model_ez$ANOVA$DFn[3],
+#                   dfe = model_ez$ANOVA$DFd[3],
+#                   msm = model_ez$ANOVA$SSn[3] / model_ez$ANOVA$DFn[3],
+#                   mse = model_ez$ANOVA$SSd[3] / model_ez$ANOVA$DFd[3],
+#                   mss = model_ez$ANOVA$SSd[1] / model_ez$ANOVA$DFd[1],
+#                   ssm = model_ez$ANOVA$SSn[3],
+#                   sse = model_ez$ANOVA$SSd[3],
+#                   sss = model_ez$ANOVA$SSd[1],
+#                   a = .05)$omega,Image_gender=MOTE::omega.partial.SS.rm(
+#                   dfm = model_ez$ANOVA$DFn[4],
+#                   dfe = model_ez$ANOVA$DFd[4],
+#                   msm = model_ez$ANOVA$SSn[4] / model_ez$ANOVA$DFn[4],
+#                   mse = model_ez$ANOVA$SSd[4] / model_ez$ANOVA$DFd[4],
+#                   mss = model_ez$ANOVA$SSd[1] / model_ez$ANOVA$DFd[1],
+#                   ssm = model_ez$ANOVA$SSn[4],
+#                   sse = model_ez$ANOVA$SSd[4],
+#                   sss = model_ez$ANOVA$SSd[1],
+#                   a = .05)$omega,Gender_by_display=MOTE::omega.partial.SS.rm(
+#                   dfm = model_ez$ANOVA$DFn[5],
+#                   dfe = model_ez$ANOVA$DFd[5],
+#                   msm = model_ez$ANOVA$SSn[5] / model_ez$ANOVA$DFn[5],
+#                   mse = model_ez$ANOVA$SSd[5] / model_ez$ANOVA$DFd[5],
+#                   mss = model_ez$ANOVA$SSd[1] / model_ez$ANOVA$DFd[1],
+#                   ssm = model_ez$ANOVA$SSn[5],
+#                   sse = model_ez$ANOVA$SSd[5],
+#                   sss = model_ez$ANOVA$SSd[1],
+#                   a = .05)$omega, Gender_by_Image=MOTE::omega.partial.SS.rm(
+#                   dfm = model_ez$ANOVA$DFn[6],
+#                   dfe = model_ez$ANOVA$DFd[6],
+#                   msm = model_ez$ANOVA$SSn[6] / model_ez$ANOVA$DFn[6],
+#                   mse = model_ez$ANOVA$SSd[6] / model_ez$ANOVA$DFd[6],
+#                   mss = model_ez$ANOVA$SSd[1] / model_ez$ANOVA$DFd[1],
+#                   ssm = model_ez$ANOVA$SSn[6],
+#                   sse = model_ez$ANOVA$SSd[6],
+#                   sss = model_ez$ANOVA$SSd[6],
+#                   a = .05)$omega,Display_by_Image=MOTE::omega.partial.SS.rm(
+#                   dfm = model_ez$ANOVA$DFn[7],
+#                   dfe = model_ez$ANOVA$DFd[7],
+#                   msm = model_ez$ANOVA$SSn[7] / model_ez$ANOVA$DFn[7],
+#                   mse = model_ez$ANOVA$SSd[7] / model_ez$ANOVA$DFd[7],
+#                   mss = model_ez$ANOVA$SSd[1] / model_ez$ANOVA$DFd[1],
+#                   ssm = model_ez$ANOVA$SSn[7],
+#                   sse = model_ez$ANOVA$SSd[7],
+#                   sss = model_ez$ANOVA$SSd[1],
+#                   a = .05)$omega,Gender_by_Display_by_Image=MOTE::omega.partial.SS.rm(
+#                   dfm = model_ez$ANOVA$DFn[8],
+#                   dfe = model_ez$ANOVA$DFd[8],
+#                   msm = model_ez$ANOVA$SSn[8] / model_ez$ANOVA$DFn[8],
+#                   mse = model_ez$ANOVA$SSd[8] / model_ez$ANOVA$DFd[8],
+#                   mss = model_ez$ANOVA$SSd[1] / model_ez$ANOVA$DFd[1],
+#                   ssm = model_ez$ANOVA$SSn[8],
+#                   sse = model_ez$ANOVA$SSd[8],
+#                   sss = model_ez$ANOVA$SSd[1],
+#                   a = .05)$omega)
+# 
+# 
+# Gender_by_Image=MOTE::omega.partial.SS.rm(
+#                   dfm = model_ez$ANOVA$DFn[6],
+#                   dfe = model_ez$ANOVA$DFd[6],
+#                   msm = model_ez$ANOVA$SSn[6] / model_ez$ANOVA$DFn[6],
+#                   mse = model_ez$ANOVA$SSd[6] / model_ez$ANOVA$DFd[6],
+#                   mss = model_ez$ANOVA$SSd[1] / model_ez$ANOVA$DFd[1],
+#                   ssm = model_ez$ANOVA$SSn[6],
+#                   sse = model_ez$ANOVA$SSd[6],
+#                   sss = model_ez$ANOVA$SSd[6],
+#                   a = .05)
+
+
+# MOTE::eta.partial.SS(dfm = model_ez$ANOVA$DFn[2],
+#                dfe = model_ez$ANOVA$DFd[2],
+#                ssm = model_ez$ANOVA$SSn[2],
+#                sse = model_ez$ANOVA$SSd[2],
+#                Fvalue =  model_ez$ANOVA$F[2],
+#                a = .05)
+
+# resid<-tibble::as_tibble(residuals(model$lm)) %>% 
+#   tidyr::pivot_longer(cols = tidyr::everything(), names_to = "Condition", 
+#                       values_to = "Residuals") %>% 
+#   dplyr::group_by(Condition) %>% 
+#   dplyr::mutate(zresid = (Residuals-mean(Residuals))/sd(Residuals)) %>% 
+#   dplyr::ungroup()
+# 
+# QQ<-resid %>%
+#   ggplot2::ggplot(ggplot2::aes(sample = zresid))+
+#   jaspGraphs::themeJaspRaw() +
+#   ggplot2::stat_qq(shape = 21, fill = "grey", size = 2.5) +
+#   ggplot2::stat_qq_line(colour="brown") +
+#   jaspGraphs::geom_rangeframe()
+
+
+
+
+```
+
+## Part 1/2 (JASP)
+
+Open the dataset **Assignment5_data**. These are based on real data [@Bernard2012], referenced by Field [-@field2017] where the researchers examined whether presenting sexualized portrayals of women led to those women being objectified. The study was based on the inversion effect – people find it more difficult to accurately recognize pictures which have been inverted (as compared to images presented the correct way up), but this effect is more pronounced for pictures of humans than for pictures of objects. The researchers presented groups of women and men (`Gender`) with sexualized pictures of women and men; half of these pictures were presented upright, and the other half were inverted. On each trial, the participants were presented with one picture, and were subsequently asked to choose the picture they had just seen from a line-up of two images on a new screen. The main DV was the proportion of correctly-recognized pictures.
+
+Imagine that the researchers hypothesized that, if sexualized images of women are processed as objects, then an inversion effect (i.e., a reduction in recognition scores for inverted vs. upright pictures) should NOT be present for images of females, but it should be for images of males (assuming that images of males are not objectified to the same degree as images of females). Let us also imagine that there is no specific hypothesis for the effect of participant gender (`Gender`).
+
+1.  Formulate a hypothesis (only $\ H_1$) for the effect of participant gender `Gender`, **in light of the hypotheses already presented**. Give a very brief explanation for your expectation. (**3 points**) <span style="color: red;">
+    -   Hypothesis which follows the hint and makes a clear expectation regarding the three-way interaction (2); possible partial points available for hypotheses only relating to one of the two-way interactions, but no points for a main effect hypothesis (unless a **very** convincing reason is given for the expectation of overall gender differences in recognition scores); (1) for sensible explanation. </span>
+2.  Visualize the data using a graph appropriate for the design and paste this into your submission. (**3 points**) <span style="color: red;">
+    -   Points for a neat plot or plots - multiple plots are fine here, as we are dealing with three factors - (1) showing means (1) and dispersion (1) for all conditions (e.g., barplot/lineplot with errorbars, or boxplot).</span>
+
+```{r plot_2, fig.width = 12, fig.height = 8, fig.align='center'}
+
+combiplot2
+```
+
+3.  State the most appropriate test to run on these data. Run this test, and interpret **all** relevant output, with reference to relevant supporting descriptive statistics. (**11 points**) <span style="color: red;">
+    -   Mixed three-way ANOVA should be selected (2 \* 2 \* 2). (1)
+    -   Significant main effect of inversion (1): overall, recognition scores were higher for upright as compared to inverted images (1).
+    -   Significant main effect of gender portrayed in photo (1): overall, recognition scores were higher for images depicting females (1).
+    -   No significant main effect of participant gender (`Gender`) (1).
+    -   Significant two-way interaction of inversion and gender portrayed in photo (1): there was a significant inversion effect - reduced recognition scores for inverted vs. upright images - only for images depicting males. (1)
+    -   No other significant interactions (3). </span>
+4.  Give a brief, plain conclusion with respect to the hypotheses (including the one you stated yourself in Q3). (**3 points**) <span style="color: red;">
+    -   The results reflect the hypothesized inversion effect: inverting images had no impact on recognition of female models, suggesting a higher degree of objectification for these (2). This pattern held regardless of the gender of the participant (1). </span>
+
+## Part 2/2 (Conceptual)
+
+We return to Dr. Metheny's 'smooth jazz' experiments from a previous assignment. Metheny was interested in whether regularly listening to smooth jazz music can reduce exam stress, so, one week before an exam, he randomly assigned student participants either to a condition where they followed a nightly listening programme of smooth jazz, or a control condition where they listened to pop music (n = 25 in each group). The dependent variable was the **difference between exam stress measured one week before the exam and exam stress reported on the morning of the exam**, with stress originally measured on a 0 – 100 scale (pre- minus post-, meaning positive difference scores = stress reduction relative to baseline). Metheny found a mean difference score of 5.32 in the control condition, and a mean difference score of 7.14 in the smooth jazz condition. The pooled standard deviation for each group’s difference score was approximately 2.5.
+
+5.  Calculate an appropriate measure of effect size for the difference between ‘smooth jazz’ and ‘pop music’ and comment on the strength of the effect. (**2 points**) <span style="color: red;">
+    -   $d = \frac{\overline{X_1} - \overline{X_2}}{SD} = .73$ (1); we could classify this as a 'medium/moderate' effect.(1) </span>
+6. How confident are you in this estimate of the strength of the effect? Explain your reasoning. (**2 points**) <span style="color: red;">  
+    - We should not be too confident in this estimate of the effect (1), because moderate/large effects occurring in small samples are often unreliable and could represent sampling error. (1)
+
+## References

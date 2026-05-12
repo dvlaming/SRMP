@@ -1,0 +1,241 @@
+---
+title: "SRMP: answers for assignment 3"
+format: html
+execute: 
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r part1}
+
+library(bruceR)
+library(ggplot2)
+library(ggrain)
+library(jaspGraphs)
+library(dplyr)
+library(faux)
+# library(ez)
+library(haven)
+# library(car)
+# library(emmeans)
+
+
+set.seed(123)
+
+faux::faux_options(plot="FALSE")
+
+
+between <- list(
+  Major = c(FineArt = "Fine Art", Politics = "Politics"),
+  Drink = c(LoAlcBeer = "Low alcohol IPA (0.5%)", ModAlcBeer = "Standard IPA (5%)",
+            HiAlcBeer = "Double IPA (10%)")
+)
+
+DrinkData <- faux::sim_design(between = between, 
+                 n = 30, mu = c(53,67,35,41,76,70), 
+                 sd = c(12,18,10,13,20,24))
+
+
+
+BigScoreInds<-which(DrinkData$y>100)
+
+DrinkData$y[BigScoreInds]<-runif(length(BigScoreInds), min = 93, 
+                                             max = 98)
+
+
+names(DrinkData)[names(DrinkData) == "y"]<-"LanguageScore"
+
+haven::write_sav(DrinkData,"Week3assignment_MajorDrinkLanguageData.sav")
+
+
+## means
+
+tafel<-DrinkData %>%
+  group_by(Major,Drink) %>%
+  summarize(N=n(),mean=mean(LanguageScore),SE=sd(LanguageScore)/sqrt(N))
+tafel<-knitr::kable(x=tafel, align = "cccc")
+
+tafelMaj<-DrinkData %>%
+  group_by(Major) %>%
+  summarize(N=n(),mean=mean(LanguageScore),SE=sd(LanguageScore)/sqrt(N))
+tafelMaj<-knitr::kable(x=tafelMaj, align = "cccc")
+
+tafelDrink<-DrinkData %>%
+  group_by(Drink) %>%
+  summarize(N=n(),mean=mean(LanguageScore),SE=sd(LanguageScore)/sqrt(N))
+tafelDrink<-knitr::kable(x=tafelDrink, align = "cccc")
+
+## plotting
+
+# p1 <- faux::plot_design(DrinkData,"Major", "Drink") +
+#   ylab("Pretentious language score (0-100)")
+#     
+# ggsave("Week3_Violin.pdf",plot=p1,path=writeDir)
+
+# make it rain
+
+# PunchBox<-ggplot2::ggplot(DrinkData, aes(x=Major,y=LanguageScore, fill=Drink, color = Drink))+
+#   ggrain::geom_rain(alpha = .5, boxplot.args = rlang::list2(staplewidth = 1, alpha = .5, 
+#                                                     aes(fill = Drink, color = Drink), 
+#                                                     outlier.shape = NA,
+#                                                     box.linewidth = 1,
+#                                                     whisker.linewidth = 1,
+#                                                     staple.linewidth = 1),
+#                     boxplot.args.pos = rlang::list2(width = 0.1, 
+#                                                     position = position_nudge(x = 0)),
+#                     point.args = rlang::list2(alpha = 0.5, size = 2.5, aes(color = Drink)),
+#                     point.args.pos = rlang::list2(position = 
+#                                                     ggpp::position_jitternudge(
+#                                                       x = -0.19, width = .065, seed = 123, 
+#                                                       nudge.from = "jittered.x"))) +
+#   ggplot2::scale_y_continuous(limits = c(0,100), breaks = seq(0,100,10)) +
+#   jaspGraphs::geom_rangeframe() + # add lines on the x-axis and y-axis
+#   jaspGraphs::themeJaspRaw()  +    # add the JASP theme
+#   jaspGraphs::scale_JASPfill_discrete() +
+#   jaspGraphs::scale_JASPcolor_discrete()
+
+
+PunchBox<-ggplot2::ggplot(DrinkData, aes(x=Drink,y=LanguageScore, fill = Major, color = Major))+
+  ggplot2::theme_classic() +
+  ggrain::geom_rain(alpha = .5, boxplot.args = rlang::list2(staplewidth = 1, alpha = .5,
+                                                    aes(fill = Major, color = Major),
+                                                    outlier.shape = NA,
+                                                    box.linewidth = 1,
+                                                    whisker.linewidth = 1,
+                                                    staple.linewidth = 1, show.legend = FALSE),
+                    boxplot.args.pos = list(width = .1,
+                position = ggpp::position_dodgenudge(width = .15, #width needed now in ggpp version 0.5.g
+                  x = rep(-.13,6))),
+                point.args = rlang::list2(alpha = 0.5, size = 2.5, aes(color = Major,fill = Major),
+                                          show.legend = FALSE)) +
+  jaspGraphs::scale_JASPfill_discrete() +
+  jaspGraphs::scale_JASPcolor_discrete() #+
+  # ggplot2::guides(fill = guide_legend(override.aes = list(colour = NA, alpha = .5))) +
+  # ggplot2::guides(colour = guide_legend(override.aes = list(colour = NA, alpha = .5))) +
+  # ggplot2::guides(box.linewidth = guide_legend(override.aes = list(box.linewidth = NA)))
+
+## anova
+
+partial.omega<-function(SS,dfn,MSE,n){
+  return((SS - (dfn * MSE))/(SS + (n - dfn) * MSE))
+}
+
+invisible(capture.output(model<-bruceR::MANOVA(data = DrinkData, subID = "id", dv = "LanguageScore", between = c("Drink","Major"))))
+invisible(capture.output(mmdrink<-bruceR::EMMEANS(model,effect = "Drink",p.adjust = "bonferroni")))
+invisible(capture.output(mmmaj<-bruceR::EMMEANS(model,effect = "Major",p.adjust = "bonferroni")))
+invisible(capture.output(simpfx<-bruceR::EMMEANS(model,effect = "Major", by = "Drink",
+                        p.adjust = "bonferroni")))
+
+
+omsqu<-partial.omega(SS = model$Anova$`Sum Sq`[2:4],
+                     dfn = model$Anova$Df[2:4], MSE = model$anova_table$MSE[1],
+                     n = nrow(DrinkData))
+
+
+# make qq from residuals
+
+QQ<-tibble::tibble(zresid=(as.numeric(model$lm$residuals)-mean(as.numeric(model$lm$residuals)))/sd(as.numeric(model$lm$residuals))) %>%
+  ggplot(aes(sample = zresid)) +
+  ggplot2::stat_qq(shape = 21, fill = "grey", size = 2.5) +
+  ggplot2::stat_qq_line(colour="brown") +
+  ggplot2::ylab("Standardized residuals") +
+  ggplot2::xlab("Theoretical quantiles")+
+  ggplot2::scale_y_continuous(limits = c(-3,3), breaks = seq(-3,3,1)) +
+  ggplot2::theme_classic()
+
+##### links for ancova
+# https://www.google.com/search?client=firefox-b-d&q=ancova+in+R
+
+
+
+
+
+```
+
+```{r part2}
+
+birdy<-haven::read_sav("PastryBirds.sav")
+
+meanAge<-mean(birdy$Age)
+
+coveffect<-summary(lm(Age ~ Pastry, data = birdy))
+modbird_int<-summary(lm(Pecks ~ Pastry * Age, data = birdy))
+modbird_add<-summary(lm(Pecks ~ Pastry + Age, data = birdy))
+
+coef.modbird<-coefficients(lm(Pecks ~ Pastry + Age, data = birdy))
+
+adj_ah<-coef.modbird[[1]] + coef.modbird[[2]]*0 + coef.modbird[[3]]*meanAge
+adj_kiosk<-coef.modbird[[1]] + coef.modbird[[2]]*1 + coef.modbird[[3]]*meanAge
+
+
+ahbirdy<-birdy %>% 
+  dplyr::filter(Pastry == 0)
+
+kioskbirdy<-birdy %>% 
+  dplyr::filter(Pastry == 1)
+
+birdscat<-ggplot2::ggplot(data = birdy,mapping=ggplot2::aes(x = as.numeric(Age), 
+                                                            y = as.numeric(Pecks), 
+                                                            colour = haven::as_factor(Pastry),
+                                                            fill = haven::as_factor(Pastry),
+                                                            group = haven::as_factor(Pastry))) +
+  ggplot2::theme_classic()  +
+  ggplot2::geom_point(size = 2.5, alpha = 1) +
+  ggplot2::geom_smooth(method = "lm") +
+  ggplot2::scale_y_continuous(limits = c(-2.5,25), breaks = seq(0,25,5))+
+  jaspGraphs::scale_JASPcolor_discrete(name = "Pastry") +
+  jaspGraphs::scale_JASPfill_discrete(name = "Pastry") +
+  ggplot2::labs(x = "Age", y = "Pecks") 
+  
+##https://jasp-stats.github.io/jaspGraphs/
+  
+
+```
+
+## Part 1/2 (JASP)
+
+Open the dataset **Assignment3_data_part1**. Dr. Kater had previously observed that students following certain majors tended to often use pretentious language during discussions about current events with classmates in cafes, especially after a few drinks. He and his team decided to run a study where they invited Fine Art and Politics students (`Major`) to the lab and randomly assigned them to receive either 2 glasses of a very low alcohol IPA beer, a 'standard' IPA of 5% alcoholic volume, or a strong double IPA of 10% volume (`Drink`). After consuming their drinks, each student was taken to a room where they were told they would join a discussion on current affairs with 3 students from another university who followed the same major as they did - in reality, these were confederates working for Dr. Kater. These confederates each scored the participating students for frequency of pretentious language use (0 = 'Plain speaker'; 100 = 'William F. Buckley') and the scores of the three confederates were averaged to form the DV `LanguageScore`, which Dr. Kater and his team were keen to compare across conditions.  
+
+1. Following your own intuition, propose clear and strong hypotheses for the design above (only$\ H_1$, no need to mention$\ H_0$). (**3 points**)  <span style="color: red;">
+    + 1 point each for clear hypotheses which express a specific difference (i.e., a direction) or pattern of differences (in the case of the interaction).</span>
+2. State the most appropriate test to run on these data. Screen the data and comment on whether the assumptions of the test seem to be met. (**4 points**)  <span style="color: red;">
+    + Factorial ANOVA (1)
+    + As can be seen in a QQ plot, the model residuals do not exactly follow a normal distribution (1.5).
+    + Levene's test gives _p_ < .05; variances may not be homogeneous (1.5).</span>
+
+```{r QQ, fig.align='center', fig.height=5, fig.width=5}
+QQ
+```
+
+3. Prepare a graph which visualizes the descriptive results and include this in your assignment document. (**2 points**)  <span style="color: red;">
+    + Nice graph which shows central tendency and spread (2).</span>
+
+```{r rain, fig.align='center', fig.height=5, fig.width=7}
+PunchBox
+```
+
+4. Regardless of the outcomes of your screening, perform the inferential test you proposed in Q2. What conclusions can you draw with regard to the hypotheses you presented in Q1? Support these conclusions by discussing relevant (descriptive) numerical information and test output (no need to use APA format, just highlight those parts of the output which were crucial to your decision-making). (**8 points**)  <span style="color: red;">
+    + The main effect of `Major` is significant: on average, Politics students score higher than Fine Art students (1).
+    + The main effect of `Drink` is significant: 'standard'-strength beer appears to lead to higher scores than the other categories, followed by strong and low-alcohol beers (1). Post-hoc tests were significant for all categories (1). 
+    + The interaction effect is significant: fine Art students' scores increase across 'low' to 'standard' beer, but drop across 'standard' to 'strong'; whereas Politics students' scores increase across 'low' to 'standard and then stabilize/do not differ much across 'standard' to 'strong'. The score difference between majors is most pronounced in the 'strong' conditions (2). Simple-effects/post-hoc testing shows, when breaking down by `Drink` the difference between the major groups was significant for the 'low' and 'strong' drinks, but not for the 'standard' drinks; and that, when breaking down by `Major`, the only non-significant difference was among the Politics students when comparing the 'standard' and 'strong' `Drink` conditions (2).
+    + Comments relating these findings to the specific hypotheses formulated in Q1 (1).</span>
+
+## Part 2/2 (JASP)
+
+
+Open the dataset **Assignment3_data_part2**. Prof. Vogel has noticed that birds from the corvid family enjoy eating sausage rolls which have been discarded on train station platforms. In her bird lab, she designs a study to test her hypothesis that corvids (regardless of sub-species) will prefer sausage rolls from a producer with a stronger reputation (Albert Heijn) as compared to those from a less reputable producer (Kiosk). The sampled birds were assigned to receive a sausage roll from only one of the two brands and their preferences were studied by measuring how often they pecked at the sausage roll they were offered (`Pecks`). The age of each bird (`Age`) was also recorded in the dataset, as Vogel reasons that older birds might peck less at pastries regardless of the producer, and she wishes to control for this.
+
+5. State the most appropriate test for taking **all** of Prof. Vogel’s expectations and concerns into account and report **only on whether the assumptions unique to this test** are satisfied.  (**3 points**)  <span style="color: red;">
+    + ANCOVA should be selected. (1)
+    + Independence of covariate and IV appears to be satisfied (no sig. difference in `Age` across `Pastry`). (1)
+    + Homogeneity of regression slopes appears to be satisfied (no sig. `Pastry` * `Age` interaction). (1) </span>
+
+```{r regslopes, fig.align='center', fig.height=5, fig.width=5}
+birdscat
+```
+    
+6. Run the test (regardless of the outcome of the assumption checks) and - referring to relevant descriptive and inferential output - comment on what the results say about Prof. Vogel’s main hypothesis. (**3 points**)  <span style="color: red;">
+    + There was a significant effect of `Pastry`, adjusted for `Age` (_p_ < 0.001) (1). On average, when adjusting for age, birds pecked more at the Albert Heijn sausage rolls (mean pecks = 15.47; adjusted mean = 15.86) than those from Kiosk (mean pecks = 7.53; adjusted mean = 7.14). (1 for clear text, 1 for key descriptives) </span>
+7. What do the results have to say about her expectations regarding age of the bird? (**2 point**)  <span style="color: red;">
+    + `Age` had a significant, negative effect on pecking (1); older birds pecked less overall, as Vogel expected. (1) </span>
